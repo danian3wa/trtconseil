@@ -1,0 +1,69 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Annonce{% endblock %}
+{% form_theme formAnnonce 'bootstrap_5_layout.html.twig' %}
+{% block body %}
+
+<h1>Gestion d'une annonce</h1>
+<style>
+        .invisible{
+            display:none;
+        }
+        .container{
+            width: 100%;
+            border: 1px solid #ddd;
+            padding-top: 13px;
+            border-radius: 10px;
+            background-color: #F9F9FA;
+            color: #413C49;
+            margin-top: 20px;
+            padding-bottom: 13px;
+        }
+
+        .error{
+            color: red;
+            font-weight: 600;
+        }
+
+        .has-error ul{
+            color: red;
+            list-style-type: none;
+            padding-left: 0;
+            padding-top: 5px;
+            font-style: italic;
+        }
+
+        .btn-lg{
+            color: #fff;
+            margin: auto;
+            margin-top: 30px;
+        }
+    </style>
+{{ form_start(formAnnonce) }}
+
+{{ form_row(formAnnonce.titre, {label: 'Titre', 'attr' : { 'placeholder' : 'Titre'}}) }}
+{{ form_row(formAnnonce.typecontrat, {label: 'Type de contrat','attr' : { 'placeholder' : 'Type de contrat'}}) }}
+{{ form_row(formAnnonce.poste, {label: 'Poste', 'attr' : { 'placeholder' : 'Poste'}}) }}
+{{ form_row(formAnnonce.ville, {label: 'Ville', 'attr' : { 'placeholder' : 'Ville'}}) }}
+{{ form_row(formAnnonce.datedebut, {label: 'Date de debut du contrat', 'attr' : { 'placeholder' : 'Date de debut'}}) }}
+{{ form_row(formAnnonce.datefin, {label: 'Date de fin du contrat', 'attr' : { 'placeholder' : 'Date de fin'}}) }}
+{{ form_row(formAnnonce.nombreheures, {label: 'Nombre heures par semaine', 'attr' : { 'placeholder' : 'Nombre heures'}}) }}
+{{ form_row(formAnnonce.salaire, {label: 'Salaire', 'attr' : { 'placeholder' : 'Salaire'}}) }}
+{{ form_row(formAnnonce.description, {'mapped':'false', 'disabled':'true', 'attr' : { 'placeholder' : 'Description', 'rows':'4', 'class':'invisible'}}) }} 
+
+<textarea rows='4' id="form_description" name="form[description]" required="required" class="form-control">{{formAnnonce.description.vars['data']}}</textarea>
+
+<a href="/annonces" role="button" class="btn btn-dark my-2">Retour à la liste des annonces</a>
+<button type="submit" class="btn btn-primary">
+    {% if editMode %}
+        Enregistrer les modifications
+    {% else %}
+        Ajouter l'annonce
+    {% endif %}
+</button>
+
+{{ form_end(formAnnonce) }}
+
+
+
+{% endblock %}

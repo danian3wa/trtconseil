@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Consultant 
+    {% if consultant %}
+        {{consultant.nom}}
+    {% endif %}
+{% endblock %}
+
+{% block body %}
+
+<h1 class="mt-5">Compte consultant</h1>
+
+<div>
+
+    {% if consultant %}
+        <div>Consultant ID n°{{consultant.id}}</div>
+        <div>Email : {{consultant.email|lower}}</div>
+        <div>Nom : {{consultant.nom|upper }}</div>
+        <div>Prenom :{{consultant.prenom|capitalize}}</div>        
+    {% else %}
+        <em>Données du consultant non trouvées.</em>
+    {% endif %}
+
+</div>
+<br/><br/>
+{# Si on vient de la home page #}
+{% if back is defined and back is not same as 'consultants' %}
+    <a href="{{ path('consultant_update', {'id': consultant.id, 'back': 'home'}) }}" role="button" class="btn btn-primary">Modifier</a>
+{# Si on vient de la liste des consultants #}
+{% else %}
+    {# Bouton retour à la liste des consultants #}
+    <a href="{{ path('consultants') }}" role="button" class="btn btn-dark">Retour à la liste des consultants</a>
+{% endif %}
+
+
+
+{% endblock %}

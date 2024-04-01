@@ -1,0 +1,103 @@
+{# NAVBAR #}
+        
+{% if app.user %}
+  {% if app.user.role is same as 'admin' %}
+    {% set navbar = {
+      "home":"Accueil",
+      "compte":"Compte",
+      "admins":"Administrateurs",
+      "consultants":"Consultants",
+      "recruteurs":"Recruteurs",
+      "candidats":"Candidats",
+      "annonces":"Annonces",
+      "app_logout":"Se déconnecter"
+    } 
+  %}
+
+  {% elseif app.user.role is same as 'consultant' %}
+    {% set navbar = {
+      "home":"Accueil",
+      "compte":"Compte",
+      "recruteurs":"Recruteurs",
+      "candidats":"Candidats",
+      "annonces":"Annonces",
+      "candidatures":"Candidatures",
+      "app_logout":"Se déconnecter"
+    } 
+  %}
+
+  {% elseif app.user.role is same as 'recruteur' %}
+    {% set navbar = {
+      "home":"Accueil",
+      "compte":"Compte",
+      "annonces":"Annonces",
+      "app_logout":"Se déconnecter"
+    } 
+  %}
+
+  {% elseif app.user.role is same as 'candidat' %}
+    {% set navbar = {
+      "home":"Accueil",
+      "compte":"Compte",
+      "annonces":"Annonces",
+      "app_logout":"Se déconnecter",
+    } 
+  %}
+
+  {% else %}
+    {% set navbar = {
+      "home":"Accueil",
+      "compte":"Compte",
+      "app_logout":"Se déconnecter"
+    }
+  %}
+  {% endif %}
+{% else %}
+  {% set navbar = {
+    "app_login":"Se connecter",
+    "app_register":"Créer un compte",
+  } %}
+{% endif %}
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark text-white">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="{{path('home')}}">
+      <img src="/images/logo.png" alt="TRT Conseil" width="200" >
+    </a>
+    <i class="fa-sharp fa-solid fa-phone fa-shake"></i>
+    <a class="navbar-brand ms-2" href="tel://+33123456789" title="Appelez-nous">01 23 45 67 89</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarColor02">
+      <ul class="navbar-nav ms-auto">
+        {% for a,b in navbar %}
+          <li class="nav-item">
+            <a class="nav-link" href="{{path(a)}}">{{b}}</a>
+	        </li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+
+
+           {# <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav me-auto mb-2 mb-lg-0" id="ok""></ul>
+            </div>
+            <div>
+              <p>
+                {% for a,b in navbar %}
+                
+                  <a href="{{ path(a) }}" class="btn btn-secondary">{{b}}</a> 
+                {% endfor %}
+              </p>
+            </div>
+        </div>
+      </nav>#}
+    {# FIN NAVBAR #}  

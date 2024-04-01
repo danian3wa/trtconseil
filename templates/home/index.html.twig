@@ -1,0 +1,100 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Bienvenue chez TRT Conseil{% endblock %}
+{#{% form_theme form 'bootstrap_5_layout.html.twig' %}#}
+{% block body %}
+
+<h1 class="mt-5 mb-3">Bienvenue chez TRT Conseil</h1>
+<main>
+  <section class="mt-4 ">
+    <div class="row">
+      <div class="col-lg-8 d-flex justify-content-center align-items-center">
+        <p class="text-justify">
+          <strong>Trouvez votre prochain emploi dans l'hôtellerie et la restauration</strong><br><br>
+          <strong>TRT Conseil</strong>, votre partenaire pour une carrière réussie dans le secteur de l'hôtellerie et de la restauration. Que vous soyez recruteur à la recherche du candidat idéal, candidat à la recherche de votre prochaine opportunité professionnelle, consultant spécialisé ou administrateur assurant le bon fonctionnement de notre plateforme, nous sommes là pour vous accompagner.
+          <br><br>
+          Avec notre interface simple et sécurisée, découvrez des fonctionnalités conçues pour répondre à vos besoins :
+          <br><br>
+          Créez votre compte en toute simplicité et rejoignez notre communauté d'experts.<br>
+          Connectez-vous rapidement pour accéder à votre espace personnalisé.<br>
+          Publiez vos annonces d'emploi et trouvez les profils qui correspondent à vos besoins.<br>
+          Postulez à des offres d'emploi attractives et lancez-vous dans une nouvelle aventure professionnelle.<br>
+          Rejoignez-nous dès aujourd'hui et laissez TRT Conseil vous aider à réaliser vos objectifs de carrière !<br>
+        </p>
+      </div>
+      <img class="col-lg-4 float-end img" src="/images/people_working_2.jpg" width="100px">
+    </div>
+  </section>
+  <div class="js-filter">
+    <div class="row">
+      <h2 class="mt-5 mb-5">Offres d'emploi en cours</h2>
+      <div class="col-md-3 mb-2">
+            {# Debugging #}
+            {#{{ dump(form) }}#}
+            {% if (form) %} 
+		        {{ form_start(form, {attr: {class: 'filter js-filter-form'}}) }}
+            
+              <h2 class="mb-3">Filtrer les annonces:</h2>
+                {{ form_row(form.q) }}
+                {#{{ dump(form.q.vars) }}#}
+              <h4 class="mt-3">Poste:</h4>
+              <div class="row">
+                <div class="col-md-12">
+                  {{ form_row(form.poste) }}
+                  {#{{ dump(form.poste.vars.choices[1]) }}#}
+                </div>
+              </div>
+              <button type="submit" class="btn btn-primary w-100">Filtrer</button>
+              <a class="btn btn-primary mt-2 mb-3 w-100" href="{{path('home')}}">Réinitialiser les filtres</a>
+            {{ form_end(form) }}
+            {% endif %}
+	        </div>
+      <div class="col-md-9 col-sm"> {#col-12#}
+        <div class="grid js-filter-content">
+          {%for annonce in annonces %}
+            {% if annonce.validation is same as true %}
+              <div class="card mb-3" id="annonce-{{ annonce.id }}">
+                {% if app.user is not same as null %}
+                  {% if app.user.role is same as "candidat" %}
+                    <a href="{{ path('app_annonce', {'id': annonce.id})}}" ><h4 class="card-header">{{annonce.titre|capitalize}}</h4></a> 
+                  {% else %}
+                    <h4 class="card-header">{{annonce.titre|capitalize}}</h4>
+                  {% endif %}
+                {% else %} 
+                  <h4 class="card-header">{{annonce.titre|capitalize}}</h4>
+                {% endif %}
+	              <div class="card-body">
+		              <h5 class="card-title text-primary">Poste:{{annonce.poste|capitalize}}</h5>
+		              <h6 class="card-subtitle text-muted">Ville:{{annonce.ville|upper}}</h6>
+		              <h6 class="card-subtitle text-muted">Recruteur:{{annonce.recruteur.nom|upper}}</h6>
+	              </div>
+	              <img src="/images/people_working_1.jpg" width="100px" class="card-img-top" alt="People Working">
+	              <ul class="list-group list-group-flush">
+		              <li class="list-group-item">Type de contrat : {{annonce.typecontrat|upper}}</li>
+		              <li class="list-group-item">Date de début : {{annonce.datedebut|date('d-m-Y')}}</li>
+		              <li class="list-group-item"> {% if annonce.datefin is not same as null %} Date de fin : {{annonce.datefin|date('d-m-Y')}} {% else %} Pas de date de fin {% endif %}</li>
+		              <li class="list-group-item">Nombre d'heures semaine: {{annonce.nombreheures}}</li>
+		              <li class="list-group-item">Salaires mensuel : {{annonce.salaire}} €</li>
+	              </ul>
+	              <div class="card-body">
+		              <h5>Descrition:</h5>
+		              <p class="card-text">{{annonce.description|slice(0,60)}}...</p>
+                  {% if app.user is not same as null %}
+                    {% if app.user.role is same as "candidat" %}
+                      <a href="{{ path('candidature_create', {'annonce':annonce.id, 'candidat': candidat.id })}}" role="button" class="btn btn-success">Postuler</a>
+                    {% endif %}
+                  {% endif %}
+	              </div>
+	              <div class="card-footer text-muted">Date d'ajout: {{annonce.dateajout|date('d-m-Y H:i:s') }}</div>
+              </div>
+            {% endif %}
+          {% endfor %}   
+        </div>
+        <div class="mt-2 mb-2 js-filter-pagination">
+          {% include "home/_pagination.html.twig" %}
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+{% endblock %}

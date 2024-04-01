@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Recruteur{% endblock %}
+
+{% form_theme formRecruteur 'bootstrap_5_layout.html.twig' %}
+
+{% block body %}
+
+<h1 class="mt-5">Gestion d'un recruteur</h1>
+<h2>Données de l'entreprise</h2>
+{{ form_start(formRecruteur) }}
+    {{ form_errors(formRecruteur) }}
+
+    {{ form_row(formRecruteur.nom, {label: 'Nom de l\'entrprise', 'attr' : { 'placeholder' : 'nom de l\'entreprise', 'minlength':'3', 'class':'entreprise'}}) }}
+    {{ form_row(formRecruteur.adresse, {label: 'Rue', 'attr' : { 'placeholder' : 'adresse', 'class':'entreprise'}}) }}
+    {{ form_row(formRecruteur.code_postal, {label: 'Code postal', 'attr' : { 'placeholder' : 'code postal (5 chiffres)', 'class':'entreprise'}}) }}
+    {{ form_row(formRecruteur.ville, {label: 'Ville', 'attr' : { 'placeholder' : 'ville', 'class':'entreprise'}}) }}
+
+    <button type="submit" class="btn btn-primary mt-3 mb-3 entreprise">
+            Enregistrer les modifications
+    </button>
+    {#<button type="button" class="btn btn-secondary mx-1" id="switch">switch</button>#}
+{{ form_end(formRecruteur) }}
+
+{# -----------------  FORMULAIRE USER  --------------------------- #}
+<h2 class="my-2">Données personnelles</h2>
+  {{ form_start(formUser) }} 
+    {{ form_errors(formUser) }}
+
+    {{ form_row(formUser.nom, {label: 'Nom', 'attr' : { 'placeholder' : 'nom', 'class':'form-control mt-2 mb-2'}}) }}
+    {{ form_row(formUser.prenom, {label: 'Prénom', 'attr' : { 'placeholder' : 'prenom', 'class':'form-control mt-2 mb-2'}}) }}
+    {{ form_row(formUser.email, {label: 'Email', 'attr' : { 'placeholder' : 'mail', 'class':'form-control mt-2 mb-2'}}) }}
+    {{ form_row(formUser.password, {label: 'Mot de passe:', 'type' : 'password', 'attr':{'class':'form-control mt-2 mb-2'}}) }}
+    {{ form_row(formUser.role, {'type': 'hidden', 'label': false, 'attr' : { 'placeholder' : 'role', 'readonly' : 'true'}}) }}
+    
+
+    {# <input type="hidden" name="roles" placeholder="roles" value="[]"/> #}
+    <button type="submit" class="btn btn-primary utilisateur">
+        Enregistrer les modifications
+    </button>
+
+    {# Si on vient de la home page #}
+    {% if back is defined and back is not same as 'recruteurs' %}
+        <a href="{{ path('compte') }}" role="button" class="btn btn-dark mt-3 mb-3 mx-2">Retour</a>
+    {# Si on vient de la liste des recruteurs #}
+    {% else %}
+        <a href="{{ path('recruteurs') }}" role="button" class="btn btn-dark mt-3 mb-3 mx-2">Retour à la liste des recruteurs</a>
+    {% endif %}
+{{ form_end(formUser) }} 
+<div class="my-5">&nbsp;</div>
+{% endblock %}

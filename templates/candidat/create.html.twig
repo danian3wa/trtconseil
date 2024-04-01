@@ -1,0 +1,63 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Candidat{% endblock %}
+
+
+{% block body %}
+
+<h1>Gestion d'un candidat</h1>
+
+{# ---------------------------------------------------------------- #}
+{# -----------------  FORMULAIRE USER  --------------------------- #}
+<h2 class="my-2">Données personnelles</h2>
+  {{ form_start(formUser) }} 
+{# <form name="formUser" method="post">  #}
+    {{ form_errors(formUser) }}
+
+    {{ form_row(formUser.nom, {label: 'Nom', 'attr': {'class': 'form-control mt-2', 'placeholder' :'Votre nom'}} ) }}
+    {{ form_row(formUser.prenom, {label: 'Prenom', 'attr': {'class': 'form-control mt-2', 'placeholder' :'Votre prenom'}} ) }}
+    {{ form_row(formUser.email, {label: 'Email', 'attr': {'class': 'form-control mt-2', 'placeholder' :'Votre email'}} ) }}
+    {{ form_row(formUser.password, {'type' : 'password', label: 'Mot de passe', 'attr': {'class': 'form-control mt-2'}}) }}
+    {{ form_row(formUser.role, {'type': 'hidden', 'label': false, 'attr' : { 'placeholder' : 'role', 'readonly' : 'true'}}) }}
+    
+
+    {# <input type="hidden" name="roles" placeholder="roles" value="[]"/> #}
+    <button type="submit" class="btn btn-primary mt-3 mb-3 utilisateur">
+        Enregistrer les modifications
+    </button>
+    
+{# </form> #}
+{{ form_end(formUser) }} 
+
+{# ------------ CV ---------------- #}
+<h2>CV - Fichier PDF obligatoire</h2>
+{{ form_start(formCandidat) }}
+    {{ form_errors(formCandidat) }}
+
+    {% if formCandidat.cv.vars['data'] is not empty %}
+        <a href={{ asset('uploads/uploads_cv/' ~ formCandidat.cv.vars['data']) }} target="_blank">Voir le CV (PDF)</a>
+        {{ form_row(formCandidat.cv, {'label': false, 'attr' : { 'placeholder' : 'cv', 'class':'candidat my-2', 
+        'onClick':'return confirm(\'Si vous uploadez un nouveau CV, le CV actuel sera écrasé. Continuer ? \')'
+        }}) }}
+    {% else %}
+        {{ form_row(formCandidat.cv, {'label': false, 'attr' : { 'placeholder' : 'cv', 'class':'candidat my-2' }}) }}
+
+    {% endif %}
+    
+
+    <button type="submit" class="btn btn-primary candidat">
+            Enregistrer le CV
+    </button>
+
+{# Si on vient de la home page #}
+{% if back is defined and back is not same as 'candidats' %}
+    <a href="{{ path('home') }}" role="button" class="btn btn-dark">Retour</a>
+{# Si on vient de la liste des candidats #}
+{% else %}
+    <a href="{{ path('candidats') }}" role="button" class="btn btn-dark mx-2">Retour à la liste des candidats</a>
+{% endif %}
+
+{{ form_end(formCandidat) }}
+
+<div class="my-5">&nbsp;</div>
+{% endblock %}

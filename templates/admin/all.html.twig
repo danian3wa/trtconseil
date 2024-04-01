@@ -1,0 +1,89 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des administrateurs{% endblock %}
+
+{% block body %}
+<style>
+    .locked { background-color : silver; }
+    .validated { background-color : lightgray; }
+
+</style>
+
+<div class="example-wrapper locked mt-1 p-2">
+    <h1 class="px-2">Liste des administrateurs</h1>
+    <a href="{{ path('admin_create', {}) }}" role="button" class="btn btn-success">Ajouter un administrateur</a>
+</div>
+<div class="p-2 locked my-1">
+    <table>
+        <tbody>
+            {%for c in admins_locked %}
+            
+                <tr class="mb-1">
+                    <td>
+                        <a href="{{ path('app_admin', {'id': c.id}) }}" class="btn btn-info mb-2 mx-1">Voir</a>
+                    </td>
+                    <td>
+                        {{ c.nom|upper }} {{c.prenom|capitalize}}
+                    </td>
+                    <td>
+                        <span class="mx-3 badge bg-dark"> {{c.email|lower}} </span>
+                    </td>
+                    <td>
+                        <a href="{{ path('admin_valider', {'id': c.id}) }}" class="btn btn-warning mx-1">Valider</a>
+                        <a href="{{ path('admin_update', {'id': c.id}) }}" role="button" class="btn btn-primary mx-1">Modifier</a>
+                        <a href="{{ path('admin_remove', {'id': c.id}) }}" role="button" class="btn btn-danger mx-1"
+                            onClick="return confirm('Confirmer la suppression de cet administrateur ? ')">Supprimer</a>
+                    </td>
+                </tr>
+                
+            {% else %}
+                <tr><td><em>Aucun administrateur trouvé.</em></td></tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+<div class="p-2 validated my-1">
+    <table>
+        <tbody>
+            {%for c in admins %}
+                    
+                <tr class="mb-1">
+                    <td>
+                        <a href="{{ path('app_admin', {'id': c.id}) }}" class="btn btn-info mb-2 mx-1">Voir</a>
+                    </td>
+                    <td>
+                        {{ c.nom|upper }} {{c.prenom|capitalize}}
+                    </td>        
+                    <td>
+                        <span  class="mx-3 badge bg-dark"> {{c.email|lower}} </span>
+                    </td>        
+                    <td>
+                        {# Un admin ne peut pas bloquer lui-même, sinon l'application le déconnecte et il n'y a plus accès #}
+                        {% if c.id is not same as app.user.id %}
+                            <a href="{{ path('admin_bloquer', {'id': c.id}) }}" class="btn btn-warning mx-1">Bloquer</a>
+                        {% else %}
+                            <button class="btn btn-warning mx-1" disabled>Bloquer</button>
+                        {% endif %}
+                        <a href="{{ path('admin_update', {'id': c.id}) }}" role="button" class="btn btn-primary mx-1">Modifier</a>
+                        
+                        {# Un admin ne peut pas se supprimer lui-même, sinon l'application le déconnecte et il n'y a plus accès #}
+                        {% if c.id is not same as app.user.id %}
+                            <a href="{{ path('admin_remove', {'id': c.id}) }}" role="button" class="btn btn-danger mx-1"
+                                onClick="return confirm('Confirmer la suppression de cet administrateur ? ')">Supprimer</a>                        
+                        {% else %}
+                            <button class="btn btn-danger mx-1" disabled>Supprimer</button>
+                        {% endif %}
+
+
+                </tr>
+                
+            {% else %}
+                <tr><td><em>Aucun administrateur trouvé.</em></td></tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+
+{% endblock %}

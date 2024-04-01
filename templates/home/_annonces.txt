@@ -1,0 +1,5 @@
+{%for annonce in annonces %}
+  {% if annonce.validation is same as true %}
+    {% include 'home/_card.html.twig' with {annonce: annonce, candidat: candidat} only %}   
+  {% endif %}
+{% endfor %}   

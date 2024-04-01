@@ -1,0 +1,74 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Candidat 
+    {% if candidat %}
+        {{candidat.candidatuser.nom}}
+    {% endif %}
+{% endblock %}
+
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+    .icon{
+            width: 60px
+        }
+        .icon-link{
+            text-decoration: none
+        }
+</style>
+
+<h1 class="mt-5 mb-3">Compte candidat</h1>
+
+<div>
+
+    {% if candidat %}
+        <div>CANDIDAT n°{{candidat.id}}</div>
+        <div>USER n°{{candidat.candidatuser.id}}</div>
+        <div>Email : {{candidat.candidatuser.email|lower}}</div>
+        <div>Nom : <strong>{{candidat.candidatuser.nom|upper }}</strong></div>
+        <div>Prenom : <strong>{{candidat.candidatuser.prenom|capitalize}}</strong></div>        
+        {#{{ dump(candidat)}}#}
+        <h3>CV</h3>
+        {# <div>{{candidat.getCv()}}</div>   #}
+        {% if candidat.cv is not empty %}
+        <a href="{{ asset('uploads/uploads_cv/' ~ candidat.cv) }}" target="_blank">
+            <img src={{ asset('icons/cv.png')}} title="Voir le CV (pdf)" alt="cv" class="icon"/>
+        </a>
+        {% else %}
+        pas de cv - Fichier PDF obligatoire
+        {% endif %}
+        {% if candidat.candidatuser.role is same as 'candidat_tovalid' %}
+          <h2>Votre compte doit être validé.</h2>  
+        {% endif %}
+    {% else %}
+        <em>Données du candidat non trouvées.</em>
+    {% endif %}
+
+</div>
+<br/><br/>
+
+{# Bouton retour sur l'annonce (pour le recruteur) #}
+<div>
+{% if annonce is not same as null %}
+<a href="{{ path('app_annonce', {'id': annonce}) }}" role="button" class="btn btn-dark mb-2 ">Retour à l'annonce</a>
+{% endif %}
+
+</div>
+
+
+{# Si on vient de la home page #}
+{% if back is defined and back is not same as 'admins' %}
+    {# <a href="{{ path('home') }}" role="button" class="btn btn-dark">Retour</a> #}
+    {% if candidat.candidatuser.role is same as 'candidat' %}
+          <a href="{{ path('candidat_update', {'id': candidat.candidatuser.id, 'back': 'home'}) }}" role="button" class="btn btn-primary">Modifier</a>     
+    {% endif %}
+    
+{# Si on vient de la liste des candidats #}
+{% else %}
+    {# Bouton retour à la liste des candidats #}
+    <a href="{{ path('candidats') }}" role="button" class="btn btn-dark">Retour à la liste des candidats</a>
+{% endif %}
+
+
+{% endblock %}

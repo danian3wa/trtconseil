@@ -1,0 +1,92 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des candidatures{% endblock %}
+
+
+
+{% block body %}
+
+
+<div class="mt-5 p-2 validated my-1">
+    <h1>Candidatures</h1>
+
+</div>
+
+<div class="alert alert-dismissible alert-info">
+{% if mailok is defined %}
+{{ mailok }}
+{% endif %}
+{% for message in app.flashes('success') %}
+	<div class="alert alert-success" role="alert">
+		{{ message }}
+	</div>
+{% endfor %}
+{% for message in app.flashes('error') %}
+	<div class="alert alert-danger" role="alert">
+		{{ message }}
+	</div>
+{% endfor %}
+</div>
+
+    {# Visible par tous SAUF par un CANDIDAT #}
+    {% if app.user.role is same as "consultant" %}
+        <div class="example-wrapper locked mt-1">
+
+
+            <h2 class="px-2">Liste des candidatures à valider</h2>
+            <ul class="pb-1">
+                {%for candidature in candidatures %}
+                
+                    {# Liste des candidaturesà valider #}
+                    {% if candidature.etat is same as 'tovalid' %}
+
+                        <li class="mb-1">
+                            <a href="{{ path('candidature', {'id': candidature.id})}}" class="btn btn-info">Voir</a> 
+                            Titre annonce: {{ candidature.annonce.titre|capitalize }} - Type contrat : {{ candidature.annonce.typecontrat|upper }} - Recruteur : {{ candidature.annonce.recruteur.nom|upper }} - Candidat : {{ candidature.candidat.candidatuser.nom|upper }} {{ candidature.candidat.candidatuser.prenom|capitalize }}
+                           
+                            {% if app.user.role is same as "consultant" %}
+                            <a href="{{ path('candidature_valider', {'id': candidature.id}) }}" class="btn btn-warning mx-2 my-2">Valider</a> 
+                            {% endif %}
+                            {#}
+                            <a href="{{ path('candidature_remove', {'id': candidature.id}) }}" role="button" class="btn btn-danger"
+                                onClick="return confirm('Confirmer la suppression de cette candidature et de toutes les candidatures qui y sont liées ? ')">Supprimer</a>#}
+                            
+                        </li>
+                    {% endif %}
+                {% else %}
+                    <li><em>Aucune candidature trouvée.</em></li>
+                {% endfor %}
+            </ul>
+        </div>
+
+        <div class="example-wrapper validated">
+
+
+            <h2 class="px-2">Liste des candidatures validées</h2>
+            <ul class="pb-1">
+                {%for candidature in candidatures %}
+                    {# Liste des candidatures déjà validées #}
+                    {% if candidature.etat is same as 'valid' %}
+                      <li class="mb-1">
+                        <a href="{{ path('candidature', {'id': candidature.id})}}" class="btn btn-info">Voir</a> 
+                        Titre annonce: {{ candidature.annonce.titre|capitalize }} - Type contrat : {{ candidature.annonce.typecontrat|upper }} - Recruteur : {{ candidature.annonce.recruteur.nom|upper }} - Candidat : {{ candidature.candidat.candidatuser.nom|upper }} {{ candidature.candidat.candidatuser.prenom|capitalize }}
+                        {% if app.user.role is same as "consultant" %}
+                        
+                          <a href="{{ path('candidature_bloquer', {'id': candidature.id}) }}" class="btn btn-warning mx-2 my-2">Bloquer</a>
+                        {% endif %}
+                         
+                        {#
+                        <a href="{{ path('candidature_remove', {'id': r.id}) }}" role="button" class="btn btn-danger mx-2"
+                            onClick="return confirm('Confirmer la suppression de cette annonce et de toutes les candidatures qui y sont liées ? ')">Supprimer</a>#}
+                        
+                    </li>
+                    {% endif %}
+                {% else %}
+                    <li><em>Aucune candidature trouvée.</em></li>
+                {% endfor %}
+            </ul>
+        </div>
+    
+    {% endif %}
+
+{% endblock %}

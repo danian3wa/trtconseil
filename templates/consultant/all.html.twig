@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des consultants{% endblock %}
+
+{% block body %}
+<style>
+    .locked { background-color : silver; }
+    .validated { background-color : lightgray; }
+
+</style>
+
+<div class="example-wrapper locked mt-1 p-2">
+    <h1 class="px-2">Liste des consultants</h1>
+    <a href="{{ path('consultant_create', {}) }}" role="button" class="btn btn-success">Ajouter un consultant</a>
+</div>
+<div class="p-2 validated my-1">
+    <table>
+        <tbody>
+        {%for c in consultants %}
+            <tr class="mb-1">
+                    <td>
+                        <a href="{{ path('app_consultant', {'id': c.id}) }}" class="btn btn-info mb-2 mx-1">Voir</a>
+                    </td>
+                    <td>
+                         {{ c.nom|upper }} 
+                        {{c.prenom|capitalize}} 
+                    </td>
+                    <td>
+                        <span class="mx-3 badge bg-dark"> {{c.email|lower}} </span>
+                    </td>
+                    <td>
+                        {#<a href="{{ path('consultant_update', {'id': c.id}) }}" role="button" class="btn btn-primary mx-1">Modifier</a>#}
+                        <a href="{{ path('consultant_remove', {'id': c.id}) }}" role="button" class="btn btn-danger mx-1"
+                            onClick="return confirm('Confirmer la suppression de ce consultant ? ')">Supprimer</a>
+                    </td>
+                
+            </tr>
+        {% else %}
+            <li><em>Aucun consultant trouvé.</em></li>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+
+{% endblock %}
+

@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Administrateur 
+    {% if admin %}
+        {{admin.nom}}
+    {% endif %}
+{% endblock %}
+
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+
+<h1 class="mt-5">Compte administrateur</h1>
+
+<div>
+
+    {% if admin %}
+        <div>N° id : {{admin.id}}</div>
+        <div>Email : {{admin.email|lower}}</div>
+        <div>Nom : {{admin.nom|upper }}</div>
+        <div>Prénom : {{admin.prenom|capitalize}}</div>        
+    {% else %}
+        <em>Données de l'administrateur non trouvées.</em>
+    {% endif %}
+
+</div>
+<br/><br/>
+
+{# Si on vient de la home page #}
+{% if back is defined and back is not same as 'admins' %}
+    {# <a href="{{ path('home') }}" role="button" class="btn btn-dark">Retour</a> #}
+    <a href="{{ path('admin_update', {'id': admin.id, 'back': 'home'}) }}" role="button" class="btn btn-primary">Modifier</a>
+{# Si on vient de la liste des admins #}
+{% else %}
+    <a href="{{ path('admins') }}" role="button" class="btn btn-dark">Retour à la liste des administrateurs</a>
+{% endif %}
+
+{% endblock %}

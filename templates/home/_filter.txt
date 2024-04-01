@@ -1,0 +1,13 @@
+{{ form_start(form, {attr: {class: 'js-filter-form'}}) }} {# filter js-filter js-filter-form #}
+  <h2 class="mb-3">Filtrer les annonces:</h2>
+  {{ form_row(form.q) }}
+  <h4 class="mt-3">Poste:</h4>
+  <div class="row">
+    <div class="col-md-12">
+      {{ form_row(form.poste) }}
+    </div>
+  </div>
+
+<a class="btn btn-primary mt-2 mb-3 w-100" href="{{path('home')}}">Réinitialiser les filtres</a>
+
+{{ form_end(form) }}

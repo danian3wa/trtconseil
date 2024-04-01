@@ -1,0 +1,83 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Consultant{% endblock %}
+
+{% form_theme formConsultant 'bootstrap_5_layout.html.twig' %}
+
+{% block body %}
+<style>
+        .container{
+            width: 100%;
+            border: 1px solid #ddd;
+            padding-top: 13px;
+            border-radius: 10px;
+            background-color: #F9F9FA;
+            color: #413C49;
+            margin-top: 20px;
+            padding-bottom: 13px;
+            margin-bottom: 20px;
+        }
+
+        .error{
+            color: red;
+            font-weight: 600;
+        }
+
+        .has-error ul{
+            color: red;
+            list-style-type: none;
+            padding-left: 0;
+            padding-top: 5px;
+            font-style: italic;
+        }
+
+        .btn-lg{
+            color: #fff;
+            margin: auto;
+            margin-top: 30px;
+        }
+    </style>
+<h1>
+    {% if editMode %}
+        Gestion
+    {% else %}
+        Création
+    {% endif %}
+ d'un consultant</h1>
+
+{{ form_start(formConsultant) }}
+
+{{ form_row(formConsultant.nom, {label: 'Nom', 'attr' : { 'placeholder' : 'nom'}}) }}
+{{ form_row(formConsultant.prenom, {label: 'Prénom', 'attr' : { 'placeholder' : 'prénom'}}) }}
+{{ form_row(formConsultant.email, {label: 'Email', 'attr' : { 'placeholder' : 'mail'}}) }}
+{{ form_row(formConsultant.password, {label: 'Mot de passe', 'type' : 'password', 'attr' : { 'placeholder' : 'minimum 8 caractères'}}) }}
+{# {{ form_row(formConsultant.password_confirm, {'type' : 'password', 'label': 'Confirmer le mot de passe','attr' : { 'placeholder' : 'minimum 8 caractères'}}) }} #}
+{{ form_row(formConsultant.role, {'attr' : { 'placeholder' : 'role', 'value' : 'consultant', 'readonly' : 'true'}}) }}
+
+<input type="hidden" name="roles" placeholder="roles" value="[]"/>
+
+{# Si on vient de la home page #}
+{% if back is defined and back is not same as 'consultants' %}
+    <a href="{{ path('home') }}" role="button" class="btn btn-dark">Retour</a>
+{# Si on vient de la liste des consultants #}
+{% else %}
+    <a href="/consultants" role="button" class="btn btn-dark">Retour à la liste des consultants</a>
+{% endif %}
+
+
+
+
+
+<button type="submit" class="btn btn-primary">
+    {% if editMode %}
+        Enregistrer les modifications
+    {% else %}
+        Ajouter le consultant
+    {% endif %}
+</button>
+
+{{ form_end(formConsultant) }}
+
+
+
+{% endblock %}

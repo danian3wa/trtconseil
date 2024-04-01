@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Administrateur{% endblock %}
+
+{% block body %}
+
+<h1>
+{% if editMode %}
+    Gestion
+{% else %}
+    Création
+{% endif %}
+ d'un administrateur</h1>
+
+{{ form_start(formAdmin) }}
+
+{{ form_row(formAdmin.email, {label: 'Email', 'attr' : { 'placeholder' : 'mail'}}) }}
+{{ form_row(formAdmin.nom, {label: 'Nom', 'attr' : { 'placeholder' : 'nom'}}) }}
+{{ form_row(formAdmin.prenom, {label: 'Prénom', 'attr' : { 'placeholder' : 'prénom'}}) }}
+{{ form_row(formAdmin.password, {label: 'Mot de passe', 'type' : 'password', 'attr' : { 'placeholder' : 'minimum 8 caractères'}}) }}
+{# {{ form_row(formAdmin.password_confirm, {'type' : 'password', 'label': 'Confirmer le mot de passe','attr' : { 'placeholder' : 'minimum 8 caractères'}}) }} #}
+{{ form_row(formAdmin.role, {'attr' : { 'placeholder' : 'role', 'value' : 'admin', 'readonly' : 'true'}}) }}
+
+<input type="hidden" name="roles" placeholder="roles" value="[]"/>
+
+{# Si on vient de la home page #}
+{% if back is defined and back is not same as 'admins' %}
+    <a href="{{ path('home') }}" role="button" class="btn btn-dark">Retour</a>
+{# Si on vient de la liste des admins #}
+{% else %}
+    {# <a href="{{ path('admins') }}" role="button" class="btn btn-dark">Retour à la liste des administrateurs</a> #}
+    <a href="/admins" role="button" class="btn btn-dark">Retour à la liste des administrateurs</a>
+{% endif %}
+
+
+<button type="submit" class="btn btn-primary">
+    {% if editMode %}
+        Enregistrer les modifications
+    {% else %}
+        Ajouter l'administrateur
+    {% endif %}
+</button>
+
+{{ form_end(formAdmin) }}
+
+
+{% endblock %}
