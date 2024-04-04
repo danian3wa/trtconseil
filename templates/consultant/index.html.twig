@@ -25,7 +25,7 @@
 <br/><br/>
 {# Si on vient de la home page #}
 {% if back is defined and back is not same as 'consultants' %}
-    <a href="{{ path('consultant_update', {'id': consultant.id, 'back': 'home'}) }}" role="button" class="btn btn-primary">Modifier</a>
+    <a href="{{ path('consultant_update', {'id': consultant.id, 'back': 'compte'}) }}" role="button" class="btn btn-primary">Modifier</a>
 {# Si on vient de la liste des consultants #}
 {% else %}
     {# Bouton retour à la liste des consultants #}

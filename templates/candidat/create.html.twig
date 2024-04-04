@@ -51,7 +51,7 @@
 
 {# Si on vient de la home page #}
 {% if back is defined and back is not same as 'candidats' %}
-    <a href="{{ path('home') }}" role="button" class="btn btn-dark">Retour</a>
+    <a href="{{ path('compte') }}" role="button" class="btn btn-dark">Retour</a>
 {# Si on vient de la liste des candidats #}
 {% else %}
     <a href="{{ path('candidats') }}" role="button" class="btn btn-dark mx-2">Retour à la liste des candidats</a>

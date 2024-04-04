@@ -305,4 +305,4 @@ Cette route permet d'obtenir les annonces associées à un poste spécifique ide
 
 ## Gestion du projet
 
-[Lien](https://trtconseil.technidan.com)
+[Lien Trello](https://trello.com/invite/b/94RP6TYI/ATTI6d07260e89068ca9fe89f0ef6f89de9eC65DF6D1/trt-conseil)

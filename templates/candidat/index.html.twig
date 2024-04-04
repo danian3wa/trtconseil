@@ -50,7 +50,7 @@
 
 {# Bouton retour sur l'annonce (pour le recruteur) #}
 <div>
-{% if annonce is not same as null %}
+{% if annonce is defined %} {# not same as null #}
 <a href="{{ path('app_annonce', {'id': annonce}) }}" role="button" class="btn btn-dark mb-2 ">Retour à l'annonce</a>
 {% endif %}
 
@@ -61,7 +61,7 @@
 {% if back is defined and back is not same as 'admins' %}
     {# <a href="{{ path('home') }}" role="button" class="btn btn-dark">Retour</a> #}
     {% if candidat.candidatuser.role is same as 'candidat' %}
-          <a href="{{ path('candidat_update', {'id': candidat.candidatuser.id, 'back': 'home'}) }}" role="button" class="btn btn-primary">Modifier</a>     
+          <a href="{{ path('candidat_update', {'id': candidat.candidatuser.id, 'back': 'compte'}) }}" role="button" class="btn btn-primary">Modifier</a>     
     {% endif %}
     
 {# Si on vient de la liste des candidats #}

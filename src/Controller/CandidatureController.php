@@ -31,9 +31,7 @@ class CandidatureController extends AbstractController
     $this->denyAccessUnlessGranted('ROLE_CONSULTANT');
     $em = $this->doctrine->getManager();
 
-
     $candidature = $em->getRepository(Candidature::class)->findOneBy(['id' => $id]);
-
 
     $candidatId = $candidature->getCandidat();
     $annonceId = $candidature->getAnnonce();
@@ -89,43 +87,45 @@ class CandidatureController extends AbstractController
       $annonceObjet = $candidature->getAnnonce();
       $candidatObjet = $candidature->getCandidat();
       $cv = $candidatObjet->getCV();
-
-      // ************* MAIL *********************
-
       $mailRecruteur = $annonceObjet->getRecruteur()->getRecruteurUser()->getEmail();
       $recruterName = $annonceObjet->getRecruteur()->getNom();
       $nom = $candidatObjet->getCandidatUser()->getNom();
       $prenom = $candidatObjet->getCandidatUser()->getPrenom();
+      if ($cv !== "") {
+        // Create the email
+        $email = (new Email())
+          ->priority(Email::PRIORITY_HIGH)
+          ->from('trtconseil@technidan.com')
+          ->to($mailRecruteur)
+          ->subject('Candidature à une annonce')
+          ->text('Votre annonce a un nouveau candidat, il s\'agit de ' . $nom . ' ' . $prenom . '.');
 
-      // Create the email
-      $email = (new Email())
-        ->priority(Email::PRIORITY_HIGH)
-        ->from('test@mail.com')
-        ->to($mailRecruteur)
-        ->subject('Candidature à une annonce')
-        ->text('Votre annonce a un nouveau candidat, il s\'agit de ' . $nom . ' ' . $prenom . '.');
+        // Embed CV attachment
 
-      // Embed CV attachment
-      $cvPath = $this->getParameter('uploads_cv') . '/' . $cv;
-      if (file_exists($cvPath)) {
+        $cvPath = $this->getParameter('uploads_cv') . '/' . $cv;
+        //if (file_exists($cvPath)) {
         $attachment = (new File($cvPath));
         $email->addPart(new DataPart($attachment));
+
+
+        try {
+          // Send the email
+          $mailer->send($email);
+          //dd($mailer);
+          $this->addFlash('success', 'Un email a été envoyé au recruteur.');
+        } catch (TransportExceptionInterface $e) {
+          $this->addFlash('error', 'There was a problem sending the email. Please try again later.');
+          echo "Message could not be sent. Mailer Error: " . $e->getMessage();
+        }
+
+        $_SESSION["resultat_mail"] = "Envoie du mail au recruteur : " . $recruterName;
       } else {
         // Handle case where CV file is not found
-        $this->addFlash('warning', 'Le CV du candidat n\'a pas été trouvé.');
+        $etat = 'tovalid';
+        $this->addFlash('warning', 'Le CV du candidat n\'a pas été trouvé. Merci de contacter le candidat ' . $nom . ' ' . $prenom . '.');
+        $this->addFlash('warning', 'Email non envoyé au recruteur : ' . $recruterName);
+        //$_SESSION["resultat_mail"] = "Email non envoyé au recruteur : " . $recruterName;
       }
-
-      try {
-        // Send the email
-        $mailer->send($email);
-        //dd($mailer);
-        $this->addFlash('success', 'Un email a été envoyé au recruteur.');
-      } catch (TransportExceptionInterface $e) {
-        $this->addFlash('error', 'There was a problem sending the email. Please try again later.');
-        echo "Message could not be sent. Mailer Error: " . $e->getMessage();
-      }
-
-      $_SESSION["resultat_mail"] = "Envoie du mail au recruteur : " . $recruterName;
     }
 
     if ($etat !== '') {
@@ -154,7 +154,7 @@ class CandidatureController extends AbstractController
 
     $annonceObjet = $em->getRepository(Annonce::class)->find($annonce);
 
-    // TROUVER LE CANDIDAT qui est connecté !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    // TROUVER LE CANDIDAT qui est connecté !
     $candidatObjet = $em->getRepository(Candidat::class)->find($candidat);
 
     $candidature->setAnnonce($annonceObjet);

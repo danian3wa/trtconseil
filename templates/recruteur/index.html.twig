@@ -41,7 +41,7 @@
 {# Si on vient de la home page #}
 {% if back is defined and back is not same as 'recruteurs' %}
   {% if recruteur.recruteuruser.role is same as 'recruteur' %}
-          <a href="{{ path('recruteur_update', {'id': recruteur.id, 'back': 'home'}) }}" role="button" class="btn btn-primary">Modifier</a>     
+          <a href="{{ path('recruteur_update', {'id': recruteur.id, 'back': 'compte'}) }}" role="button" class="btn btn-primary">Modifier</a>     
         {% endif %}
     {# Si on vient de la liste des recrteurs #}
   {% else %}

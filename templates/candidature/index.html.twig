@@ -12,7 +12,41 @@
     .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
 </style>
 
-<h1 class="mt-5">Annonce</h1>
+<h1 class="mt-5">Candidature</h1>
+<div class="alert alert-dismissible alert-light">
+    <ul>
+    
+          {% if candidature.etat is same as "valid" %}
+            <li style="list-style:none" class="my-1">
+             La candidature avec l'ID: {{candidature.id}} a été validée.
+            </li>
+          {% else %}
+            <li style="list-style:none" class="my-1">La candidature avec l'ID: {{candidature.id}} n'a pas été validée.</li>
+          {% endif %}
+    
+    </ul>
+</div>
+
+<h3>Candidat</h3>
+<div class="alert alert-dismissible alert-light">
+    <ul>
+  
+            <li style="list-style:none" class="my-1">
+              <a href="{{ path('app_candidat_annonce', {'id': candidature.candidat.id, 'annonce':candidature.annonce.id})}}" class="btn btn-info mx-2">Voir</a> 
+              {{candidature.candidat.candidatuser.nom}} 
+              {{candidature.candidat.candidatuser.prenom}} - Email:
+              {{candidature.candidat.candidatuser.email}} - 
+              {% if candidature.candidat.cv is not same as ""  %}
+              {{candidature.candidat.cv}}
+              {% else %}
+              Pas de CV.
+              {% endif %}
+            </li>
+    
+    </ul>
+</div>
+
+<h3>Annonce</h3>
 
 <div>
 
@@ -50,30 +84,6 @@
 </div>
 
 <br/>
-
-<h3>Candidature</h3>
-<div class="alert alert-dismissible alert-light">
-    <ul>
-    
-          {% if candidature.etat is same as "valid" %}
-            <li style="list-style:none" class="my-1">
-              <a href="{{ path('app_candidat_annonce', {'id': candidature.candidat.id, 'annonce':candidature.annonce.id})}}" class="btn btn-info mx-2">Voir</a> 
-              {{candidature.candidat.candidatuser.nom}} - 
-              {{candidature.candidat.candidatuser.prenom}} - 
-              {{candidature.candidat.candidatuser.email}} - 
-              {{candidature.candidat.cv}}
-            </li>
-          {% else %}
-            <li style="list-style:none" class="my-1">La candidature n'a pas été validée.</li>
-          {% endif %}
-     
-
-    
-    </ul>
-</div>
-
-
-
 
 {# Bouton retour #}
 <div class="mt-3">

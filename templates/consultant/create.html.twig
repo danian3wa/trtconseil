@@ -58,7 +58,7 @@
 
 {# Si on vient de la home page #}
 {% if back is defined and back is not same as 'consultants' %}
-    <a href="{{ path('home') }}" role="button" class="btn btn-dark">Retour</a>
+    <a href="{{ path('compte') }}" role="button" class="btn btn-dark">Retour</a>
 {# Si on vient de la liste des consultants #}
 {% else %}
     <a href="/consultants" role="button" class="btn btn-dark">Retour à la liste des consultants</a>
