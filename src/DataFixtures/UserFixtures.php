@@ -18,6 +18,7 @@ class UserFixtures extends Fixture
   private $counter = 1;
   public function load(ObjectManager $manager): void
   {
+    $faker = Faker\Factory::create('fr_FR');
     $admin = new User();
     $admin->setEmail("admin@mail.com");
     $admin->setPassword("$2y$13$6rM/mQQX1NUI3E.m7fFtr.uTcOLD7xsIkrHla4vuyL9qP2SaSBkGO");
@@ -53,6 +54,7 @@ class UserFixtures extends Fixture
 
     $recruteur = new Recruteur();
     $recruteur->setRecruteurUser($user_recruteur);
+    $recruteur->setNom($faker->word);
     $manager->persist($recruteur);
 
     $user_candidat = new User();
@@ -70,8 +72,7 @@ class UserFixtures extends Fixture
     $candidat->setCandidatUser($user_candidat);
     $manager->persist($candidat);
 
-    $faker = Faker\Factory::create('fr_FR');
-    for ($i = 1; $i < 28; $i++) {
+    for ($i = 1; $i < 29; $i++) {
       $annonce = new Annonce();
       $annonce->setTitre($faker->sentence);
       $annonce->setTypecontrat("CDI");
