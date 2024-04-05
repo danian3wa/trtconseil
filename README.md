@@ -235,7 +235,7 @@ Par exemple, pour activer le compte d'un recruteur inscrit, vous vous connectez 
 
 Pour pouvoir tester la fonctionnalité d'envoi d'email lors de la validation d'une candidature vous devez saisir un DSN valide dans le fichie [.env](.env) ligne 48 au niveau du MAILER_DSN=smtp://EMAIL:PASSWORD@SMTP_SERVER:PORT et décommenter la ligne.
 
-Dans le fichier [CandidatureController.php](/src/Controller/CandidatureController.php) ligne numéro 103 vous devez remplacer test@mail.com par votre adresse e-mail relative à la DSN.
+Dans le fichier [CandidatureController.php](/src/Controller/CandidatureController.php) ligne numéro 98 vous devez remplacer test@mail.com par votre adresse e-mail relative à la DSN.
 
 Vous devez également modifier l'adresse email du recruteur dans la base de données (à l'aide de phpMyAdmin) avec une adresse email valide pour pouvoir recevoir l'email envoyé. Vous utiliserez bien évidemment cette nouvelle adresse pour vous connecter au compte recruteur.
 

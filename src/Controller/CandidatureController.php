@@ -95,7 +95,7 @@ class CandidatureController extends AbstractController
         // Create the email
         $email = (new Email())
           ->priority(Email::PRIORITY_HIGH)
-          ->from('trtconseil@technidan.com')
+          ->from('test@mail.com')
           ->to($mailRecruteur)
           ->subject('Candidature à une annonce')
           ->text('Votre annonce a un nouveau candidat, il s\'agit de ' . $nom . ' ' . $prenom . '.');
