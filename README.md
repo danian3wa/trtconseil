@@ -5,11 +5,6 @@
 <br><br>
 </p>
 
-[![fr](https://img.shields.io/badge/lang-fr-blue.svg)](https://github.com/danian3wa/TRT_CONSEIL/blob/main/README.md)
-[![en](https://img.shields.io/badge/lang-en-red.svg)](https://github.com/danian3wa/TRT_CONSEIL/blob/main/README.en.md)
-[![ro](https://img.shields.io/badge/lang-ro-yellow.svg)](https://github.com/danian3wa/TRT_CONSEIL/blob/main/README.ro.md)
-
-
 # TRT Conseil web app
 
 <a href="https://github.com/danian3wa/trtconseil/blob/main/LICENSE">
