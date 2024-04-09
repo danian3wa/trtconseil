@@ -5,16 +5,18 @@
 <br><br>
 </p>
 
-[![fr](https://img.shields.io/badge/lang-fr-blue.svg)](https://github.com/danian3wa/trtconseil/blob/main/README.md)
+[![fr](https://img.shields.io/badge/lang-fr-blue.svg)](https://github.com/danian3wa/TRT_CONSEIL/blob/main/README.md)
+[![en](https://img.shields.io/badge/lang-en-red.svg)](https://github.com/danian3wa/TRT_CONSEIL/blob/main/README.en.md)
+[![ro](https://img.shields.io/badge/lang-ro-yellow.svg)](https://github.com/danian3wa/TRT_CONSEIL/blob/main/README.ro.md)
 
 
 # TRT Conseil web app
 
-<a href="https://github.com/danian3wa/trtconseil/blob/main/LICENSE">
-<img src ="https://img.shields.io/github/license/danian3wa/trtconseil" />
+<a href="https://github.com/danian3wa/TRT_CONSEIL/blob/main/LICENSE">
+<img src ="https://img.shields.io/github/license/danian3wa/TRT_CONSEIL" />
 </a>
-<a href="https://github.com/danian3wa/trtconseil/issues">
-<img src ="https://img.shields.io/github/issues/danian3wa/trtconseil" />
+<a href="https://github.com/danian3wa/TRT_CONSEILp/issues">
+<img src ="https://img.shields.io/github/issues/danian3wa/TRT_CONSEIL" />
 </a><br><br>
 
 Lien vers la version en ligne du projet: [Cliquez ici](https://trtconseil.technidan.com)
@@ -40,38 +42,38 @@ TRT Conseil désire avoir un produit minimum viable afin de tester si la demande
 
 ### US1. Créer un compte
 
-Disponible pour les recruteurs et les candidats
-Renseignement d'un email valide et d'un mot de passe sécurisé
-Approbation de la demande par un consultant avant activation du compte
+Disponible pour les recruteurs et les candidats.
+Renseignement d'un email valide et d'un mot de passe sécurisé.
+Approbation de la demande par un consultant avant activation du compte.
 
 ### US2. Se connecter
 
-Accessible aux recruteurs, candidats, consultants et administrateur
-Authentification par email et mot de passe
+Accessible aux recruteurs, candidats, consultants et administrateur.
+Authentification par email et mot de passe.
 
 ### US3. Créer un consultant
 
-Fonctionnalité réservée à l'administrateur
-Permet d'ajouter de nouveaux consultants à la plateforme
+Fonctionnalité réservée à l'administrateur.
+Permet d'ajouter de nouveaux consultants à la plateforme.
 
 ### US4. Compléter son profil
 
-Accessible aux candidats et aux recruteurs
-Les candidats peuvent renseigner leur nom, prénom et télécharger leur CV (format PDF obligatoire)
-Les recruteurs peuvent indiquer le nom de l'entreprise et une adresse
+Accessible aux candidats et aux recruteurs.
+Les candidats peuvent renseigner leur nom, prénom et télécharger leur CV (format PDF obligatoire).
+Les recruteurs peuvent indiquer le nom de l'entreprise et une adresse.
 
 ### US5. Publier une annonce
 
-Fonctionnalité pour les recruteurs
-Formulaire pour l'intitulé du poste, le lieu de travail et une description détaillée (horaires, salaire, etc.)
-Validation de l'annonce par un consultant avant publication
-Liste des candidats validés par TRT Conseil et ayant postulé à l'annonce accessible au recruteur
+Fonctionnalité pour les recruteurs.
+Formulaire pour l'intitulé du poste, le lieu de travail et une description détaillée (horaires, salaire, etc.).
+Validation de l'annonce par un consultant avant publication.
+Liste des candidats validés par TRT Conseil et ayant postulé à l'annonce accessible au recruteur.
 
 ### US6. Postuler à une annonce
 
-Accessible aux candidats, bouton pour postuler à une offre depuis la liste des annonces disponibles
-Approbation de la candidature par un consultant
-Envoi d'un email au recruteur avec le nom, prénom et CV du candidat si la candidature est approuvée
+Accessible aux candidats, bouton pour postuler à une offre depuis la liste des annonces disponibles.
+Approbation de la candidature par un consultant.
+Envoi d'un email au recruteur avec le nom, prénom et CV du candidat si la candidature est approuvée.
 
 ## Configuration de l'environnement de travail
 
@@ -233,9 +235,9 @@ Vous pouvez utiliser l'application Web comme décrit dans les fonctionnalités a
 
 Par exemple, pour activer le compte d'un recruteur inscrit, vous vous connectez avec le compte d'un consultant en utilisant l'adresse email consultant@mail.com et le mot de passe: 12345678 et dans l'onglet "Recruteurs" vous validez le compte du recruteur inscrit. Vous pouvez faire la même chose pour le compte candidat dans l'onglet "Candidats".  
 
-Pour pouvoir tester la fonctionnalité d'envoi d'email lors de la validation d'une candidature vous devez saisir un DSN valide dans le fichie [.env](.env) ligne 48 au niveau du MAILER_DSN=smtp://EMAIL:PASSWORD@SMTP_SERVER:PORT et décommenter la ligne.
+Pour pouvoir tester la fonctionnalité d'envoi d'email lors de la validation d'une candidature vous devez saisir un DSN valide dans le fichie [.env](.env) au niveau du MAILER_DSN=smtp://EMAIL:PASSWORD@SMTP_SERVER:PORT
 
-Dans le fichier [CandidatureController.php](/src/Controller/CandidatureController.php) ligne numéro 98 vous devez remplacer test@mail.com par votre adresse e-mail relative à la DSN.
+Dans le fichier [CandidatureController.php](/src/Controller/CandidatureController.php) ligne numéro 103 vous devez remplacer test@mail.com par votre adresse e-mail relative à la DSN.
 
 Vous devez également modifier l'adresse email du recruteur dans la base de données (à l'aide de phpMyAdmin) avec une adresse email valide pour pouvoir recevoir l'email envoyé. Vous utiliserez bien évidemment cette nouvelle adresse pour vous connecter au compte recruteur.
 
@@ -250,6 +252,22 @@ Pour arrêter le serveur de développement, utilisez la commande Control+C pour 
 **Note:**
 
 > Il s'agit d'une application web en mode développement et non pas d'une application web en mode production.
+
+## Insertion SQL
+
+### Exemple:
+
+Le fichier [schema.sql](/resources/schema.sql) a été écrit à la main et permet de créer la base de données TRTConseil_SQL et d'insérer des données dans cette base de données via PhpMyAdmin.
+
+Pour cela, il faut démarrer les serveurs Apache Web Server et MySQL Database dans l'application XAMPP dans la section Manage Servers si ce n'est pas déjà fait et puis dans un navigateur internet ouvrir [http://127.0.0.1/phpmyadmin/index.php](http://127.0.0.1/phpmyadmin/index.php) et sélectionez l'onglet Importer,  cliquez sur le bouton Choisir un fichier et sélectionez le fichier schema.sql depuis le repertoire de votre projet /TRTConseil/resources/ et puis cliquez sur le bouton Importer. 
+
+Une fois l'importation terminée, vous pouvez lancer l'application. Parmi d'autres données, deux utilisateurs ont été insérés dans la base de données :
+1. TRT Conseil, ROLE_ADMIN, email: admin@mail.com, mot de passe: 12345678
+2. JONES Adele, ROLE_CONSULTANT, email: consultant@mail.com, mot de passe: 12345678
+3. MICHELLE Eda, ROLE_RECRUTEUR_TOVALID, email: recruteur@mail.com, mot de passe: 12345678
+4. MARY Lea, ROLE_CANDIDAT_TOVALID, email: candidat@mail.com, mot de passe: 12345678
+
+Pour pouvoir lancer l'application, vous devez au préalable modifier le nom de la base de données dans le fichier [.env](/.env) à la ligne 33, DBNAME="TRTConseil_SQL".
 
 ## API
 
