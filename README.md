@@ -256,13 +256,15 @@ Le fichier [schema.sql](/resources/schema.sql) a été écrit à la main et perm
 
 Pour cela, il faut démarrer les serveurs Apache Web Server et MySQL Database dans l'application XAMPP dans la section Manage Servers si ce n'est pas déjà fait et puis dans un navigateur internet ouvrir [http://127.0.0.1/phpmyadmin/index.php](http://127.0.0.1/phpmyadmin/index.php) et sélectionez l'onglet Importer,  cliquez sur le bouton Choisir un fichier et sélectionez le fichier schema.sql depuis le repertoire de votre projet /TRTConseil/resources/ et puis cliquez sur le bouton Importer. 
 
-Une fois l'importation terminée, vous pouvez lancer l'application. Parmi d'autres données, deux utilisateurs ont été insérés dans la base de données :
+Vous devez modifier le nom de la base de données dans le fichier [.env](/.env) à la ligne 33, DBNAME="TRTConseil_SQL".
+
+Une fois l'importation terminée, vous pouvez lancer l'application. Parmi d'autres données, 4 utilisateurs ont été insérés dans la base de données :
 1. TRT Conseil, ROLE_ADMIN, email: admin@mail.com, mot de passe: 12345678
 2. JONES Adele, ROLE_CONSULTANT, email: consultant@mail.com, mot de passe: 12345678
 3. MICHELLE Eda, ROLE_RECRUTEUR_TOVALID, email: recruteur@mail.com, mot de passe: 12345678
 4. MARY Lea, ROLE_CANDIDAT_TOVALID, email: candidat@mail.com, mot de passe: 12345678
 
-Pour pouvoir lancer l'application, vous devez au préalable modifier le nom de la base de données dans le fichier [.env](/.env) à la ligne 33, DBNAME="TRTConseil_SQL".
+Vous pouvez tester l'application.
 
 ## API
 
