@@ -12,11 +12,11 @@
 
 # TRT Conseil web app
 
-<a href="https://github.com/danian3wa/TRT_CONSEIL/blob/main/LICENSE">
-<img src ="https://img.shields.io/github/license/danian3wa/TRT_CONSEIL" />
+<a href="https://github.com/danian3wa/trtconseil/blob/main/LICENSE">
+<img src ="https://img.shields.io/github/license/danian3wa/trtconseil" />
 </a>
-<a href="https://github.com/danian3wa/TRT_CONSEILp/issues">
-<img src ="https://img.shields.io/github/issues/danian3wa/TRT_CONSEIL" />
+<a href="https://github.com/danian3wa/trtconseil/issues">
+<img src ="https://img.shields.io/github/issues/danian3wa/trtconseil" />
 </a><br><br>
 
 Lien vers la version en ligne du projet: [Cliquez ici](https://trtconseil.technidan.com)
