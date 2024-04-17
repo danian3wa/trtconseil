@@ -27,7 +27,7 @@ class SearchForm extends AbstractType
         'label' => false,
         'required' => false,
         'class' => Poste::class,
-        'expanded' => true,
+        'expanded' => false,
         'multiple' => true
       ]);
   }

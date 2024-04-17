@@ -6,11 +6,11 @@ import './bootstrap.js';
  * which should already be in your base.html.twig.
  */
 import './styles/app.css';
-/*
+
 import Filter from './modules/Filter'
 
 new Filter(document.querySelector('.js-filter'));
-
+/*
 document.addEventListener('DOMContentLoaded', () => {
   console.log('DOM content loaded');
   new Filter(document.querySelector('.js-filter'));

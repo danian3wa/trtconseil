@@ -48,18 +48,21 @@ class HomeController extends AbstractController
     $form = $this->createForm(SearchForm::class, $data);
     $form->handleRequest($request);
     $annonces = $annonceRepository->findSearch($data);
+    
     //$liste = $em->getRepository(Annonce::class)->findAll();
     if ($request->get('ajax')) {
+      //dd($annonces);
+      //dd($form);
       return new JsonResponse([
-        'content' => $this->renderView('home/index.html.twig', ['annonces' => $annonces]),
-        'pagination' => $this->renderView('home/_pagination.html.twig', ['annonces' => $annonces]),
+        'content' => $this->renderView('home/_annonces.html.twig', ['annonces' => $annonces, 'candidat' => $candidat]),
+        'pagination' => $this->renderView('home/_pagination.html.twig', ['annonces' => $annonces, 'candidat' => $candidat]),
       ]);
     }
     return $this->render('home/index.html.twig', [
       'controller_name' => 'HomeController',
-      'form' => $form->createView(),
       'user' => $user,
       'annonces' => $annonces,
+      'form' => $form->createView(),
       'candidat' => $candidat
     ]);
   }

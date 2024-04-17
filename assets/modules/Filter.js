@@ -72,7 +72,7 @@ export default class Filter {
       },
     });
 
-    if (response.ok) {
+    if (response.status >= 200 && response.status < 300) {
       const data = await response.json();
       this.content.innerHTML = data.content;
       this.pagination.innerHTML = data.pagination;
