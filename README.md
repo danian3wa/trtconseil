@@ -312,7 +312,7 @@ Cette route permet d'obtenir les annonces associées à un poste spécifique ide
 
 [Diagramme de classes](/resources/Class_diagram.png)
 
-[Diagramme de cas d'utilisations](/resources/Diagramme%20de%20cas%20d'utilisation.jpg)
+[Diagramme de cas d'utilisations](/resources/Diagramme%20de%20cas%20d'utilisation.png)
 
 [Diagramme de séqence 1](/resources/Diagramme_de_sequence.jpg)
 
