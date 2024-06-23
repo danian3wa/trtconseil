@@ -30,20 +30,9 @@ class AnnonceController extends AbstractController
     $annonce = $em->getRepository(Annonce::class)->findOneBy(['id' => $id]);
 
     $candidatures = $em->getRepository(Candidature::class)->findBy(['annonce' => $annonce]);
-    //dd($candidatures);
-    /*
-    foreach ($candidatures as $candidature) {
-      $etat = $candidature->getEtat();
-      if ($etat === 'valid') {
-
-      }
-    }*/
-    
-    /* Ajout d'un candidat fictif pour pouvoir tester le bouton POSTULER A UNE ANNONCE */
     $candidat = $em->getRepository(Candidat::class)->findOneBy(['candidat_user' => $this->getUser()]);
     return $this->render('annonce/index.html.twig', [
       'annonce' => $annonce,
-      /* 'recruteur' => $recruteur, */
       'candidatures' => $candidatures,
       'candidat' => $candidat,
     ]);
