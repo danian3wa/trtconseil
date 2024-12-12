@@ -32,7 +32,7 @@ class AdminController extends AbstractController
 
   #[Route('/admin/valider/{id}', name: 'admin_valider', requirements: ['id' => '\d+'])]
   #[Route('/admin/bloquer/{id}', name: 'admin_bloquer', requirements: ['id' => '\d+'])]
-  public function role(User $admin = null, Request $request): Response
+  public function role(Request $request, ?User $admin = null,): Response
   {
     $em = $this->doctrine->getManager();
     $this->denyAccessUnlessGranted('ROLE_ADMIN');
@@ -61,7 +61,7 @@ class AdminController extends AbstractController
 
   #[Route('/admin/create/', name: 'admin_create')]
   #[Route('/admin/update/{id}/{back}', name: 'admin_update', requirements: ['id' => '\d+'])]
-  public function edit(User $admin = null, Request $request, UserPasswordHasherInterface $userPasswordHasher, $back = 'admins'): Response
+  public function edit(Request $request, UserPasswordHasherInterface $userPasswordHasher, $back = 'admins', ?User $admin = null): Response
   {
     $this->denyAccessUnlessGranted('ROLE_ADMIN');
     // Savoir si on est en MODIFICATION (edit) ou AJOUT d'un consultant

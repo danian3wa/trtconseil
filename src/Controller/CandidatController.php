@@ -44,7 +44,7 @@ class CandidatController extends AbstractController
 
   #[Route('/candidat/valider/{id}', name: 'candidat_valider', requirements: ['id' => '\d+'])]
   #[Route('/candidat/bloquer/{id}', name: 'candidat_bloquer', requirements: ['id' => '\d+'])]
-  public function role($id, Candidat $candidat = null, Request $request): Response
+  public function role($id, ?Candidat $candidat = null, Request $request): Response
   {
     $this->denyAccessUnlessGranted('ROLE_CONSULTANT');
     $em = $this->doctrine->getManager();
@@ -77,7 +77,7 @@ class CandidatController extends AbstractController
 
   #[Route('/candidat/update/{id}/{back}', name: 'candidat_update', requirements: ['id' => '\d+'])]
   #[Route('/candidat/create/', name: 'candidat_create')]
-  public function edit($id, Candidat $candidat = null, User $user = null, UserPasswordHasherInterface $userPasswordHasher, Request $request, $back = 'candidats'): Response
+  public function edit($id, ?Candidat $candidat = null, User $user = null, UserPasswordHasherInterface $userPasswordHasher, Request $request, $back = 'candidats'): Response
   {
     $this->denyAccessUnlessGranted('ROLE_CANDIDAT');
     $em = $this->doctrine->getManager();

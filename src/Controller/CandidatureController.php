@@ -70,7 +70,7 @@ class CandidatureController extends AbstractController
 
   #[Route('/candidature/valider/{id}', name: 'candidature_valider', requirements: ['id' => '\d+'])]
   #[Route('/candidature/bloquer/{id}', name: 'candidature_bloquer', requirements: ['id' => '\d+'])]
-  public function etat($id, Candidature $candidature = null, MailerInterface $mailer, Request $request): Response
+  public function etat($id, ?Candidature $candidature = null, MailerInterface $mailer, Request $request): Response
   {
     $this->denyAccessUnlessGranted('ROLE_CONSULTANT');
     $em = $this->doctrine->getManager();

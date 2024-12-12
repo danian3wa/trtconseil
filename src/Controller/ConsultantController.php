@@ -34,7 +34,7 @@ class ConsultantController extends AbstractController
 
   #[Route('/consultant/create/', name: 'consultant_create')]
   #[Route('/consultant/update/{id}/{back}', name: 'consultant_update', requirements: ['id' => '\d+'])]
-  public function edit(User $consultant = null, UserPasswordHasherInterface $userPasswordHasher, Request $request, $back = 'consultants'): Response
+  public function edit(?User $consultant = null, UserPasswordHasherInterface $userPasswordHasher, Request $request, $back = 'consultants'): Response
   {
     $this->denyAccessUnlessGranted('ROLE_CONSULTANT');
     // Savoir si on est en MODIFICATION (edit) ou AJOUT d'un consultant

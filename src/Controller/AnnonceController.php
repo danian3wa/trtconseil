@@ -41,7 +41,7 @@ class AnnonceController extends AbstractController
 
   #[Route('/annonce/valider/{id}', name: 'annonce_valider', requirements: ['id' => '\d+'])]
   #[Route('/annonce/bloquer/{id}', name: 'annonce_bloquer', requirements: ['id' => '\d+'])]
-  public function role($id, Annonce $annonce = null, Request $request): Response
+  public function role($id, ?Annonce $annonce = null, Request $request): Response
   {
     $this->denyAccessUnlessGranted('ROLE_RECRUTEUR');
     $em = $this->doctrine->getManager();
@@ -71,7 +71,7 @@ class AnnonceController extends AbstractController
 
   #[Route('/annonce/update/{id}', name: 'annonce_update', requirements: ['id' => '\d+'])]
   #[Route('/annonce/create/{recruteur}', name: 'annonce_create', requirements: ['recruteur' => '\d+'])]
-  public function edit(Annonce $annonce = null, Request $request, int $recruteur = 0): Response
+  public function edit(?Annonce $annonce = null, Request $request, int $recruteur = 0): Response
   {
     $this->denyAccessUnlessGranted('ROLE_RECRUTEUR');
     $em = $this->doctrine->getManager();
