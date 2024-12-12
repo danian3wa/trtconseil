@@ -16,6 +16,7 @@ use App\Entity\Recruteur;
 use App\Entity\Candidat;
 use App\Entity\Candidature;
 use App\Entity\Annonce;
+use Symfony\Bundle\SecurityBundle\Security;
 
 class HomeController extends AbstractController
 {
@@ -27,10 +28,11 @@ class HomeController extends AbstractController
   }
 
   #[Route('/', name: 'home')]
-  public function index(AnnonceRepository $annonceRepository, Request $request): Response
+  public function index(AnnonceRepository $annonceRepository, Security $security, Request $request): Response
   {
     $em = $this->doctrine->getManager();
-    $connectedUser = $this->getUser();
+    //$connectedUser = $this->getUser();
+      $connectedUser = $security->getUser();
     if ($connectedUser !== null) {
       $user = $em->getRepository(User::class)->find($connectedUser);
     } else {
