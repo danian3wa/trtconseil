@@ -5,6 +5,9 @@
 <br><br>
 </p>
 
+[![fr](https://img.shields.io/badge/lang-fr-blue.svg)](https://github.com/danian3wa/trtconseil/blob/main/README.md)
+[![en](https://img.shields.io/badge/lang-en-red.svg)](https://github.com/danian3wa/trtconseil/blob/main/README.en.md)
+
 # TRT Conseil web app
 
 <a href="https://github.com/danian3wa/trtconseil/blob/main/LICENSE">
@@ -16,7 +19,6 @@
 
 Lien vers la version en ligne du projet: [Cliquez ici](https://trtconseil.technidan.com)
 
-Le projet TRT Conseil c'est une application web réalisé pour une évaluation.
 
 ## Contexte du projet
 
@@ -71,10 +73,6 @@ Approbation de la candidature par un consultant.
 Envoi d'un email au recruteur avec le nom, prénom et CV du candidat si la candidature est approuvée.
 
 ## Configuration de l'environnement de travail
-
-- ordinateur: [Apple Mac Mini - Apple M2 Pro](https://www.apple.com/newsroom/2023/01/apple-introduces-new-mac-mini-with-m2-and-m2-pro-more-powerful-capable-and-versatile-than-ever/)
-
-- système d'exploitation: [macOS Sonoma 14.4.1](https://developer.apple.com/documentation/macos-release-notes/macos-14_4-release-notes)
 
 - IDE: [Visual Studio Code 1.87.2](https://code.visualstudio.com/)
 
