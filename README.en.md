@@ -5,6 +5,9 @@
 <br><br>
 </p>
 
+[![fr](https://img.shields.io/badge/lang-fr-blue.svg)](https://github.com/danian3wa/trtconseil/blob/main/README.md)
+[![en](https://img.shields.io/badge/lang-en-red.svg)](https://github.com/danian3wa/trtconseil/blob/main/README.en.md)
+
 # TRT Conseil web app
 
 <a href="https://github.com/danian3wa/trtconseil/blob/main/LICENSE">
