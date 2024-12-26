@@ -1,12 +1,12 @@
 <p align="center">
 <a href="#">
-		<img width="300" src="public/images/logo.png" alt="TRT Conseil">
+        <img width="300" src="public/images/logo.png" alt="TRT Conseil">
 </a>
 <br><br>
 </p>
 
-[![fr](https://img.shields.io/badge/lang-fr-blue.svg)](https://github.com/danian3wa/trtconseil/blob/main/README.md)
-[![en](https://img.shields.io/badge/lang-en-red.svg)](https://github.com/danian3wa/trtconseil/blob/main/README.en.md)
+[![fr](https://img.shields.io/badge/lang-fr-blue.svg)](https://github.com/danian3wa/trtconseil/blob/main/README.fr.md)
+[![en](https://img.shields.io/badge/lang-en-red.svg)](https://github.com/danian3wa/trtconseil/blob/main/README.md)
 
 # TRT Conseil web app
 
@@ -17,129 +17,118 @@
 <img src ="https://img.shields.io/github/issues/danian3wa/trtconseil" />
 </a><br><br>
 
-Lien vers la version en ligne du projet: [Cliquez ici](https://trtconseil.technidan.com)
+Link to the online version of the project: [Click here](https://trtconseil.technidan.com)
 
 
-## Contexte du projet
+## Project context
 
-TRT Conseil est une agence de recrutement spécialisée dans l’hôtellerie et la restauration. Fondée en 2014, la société s’est agrandie au fil des ans et possède dorénavant plus de 12 centres dispersés aux quatre coins de la France.
+TRT Conseil is a recruitment agency specializing in the hotel and catering industry. Founded in 2014, the company has grown over the years and now has more than 12 centers scattered across France.
 
-La crise du coronavirus ayant frappée de plein fouet ce secteur, la société souhaite progressivement mettre en place un outil permettant à un plus grand nombre de recruteurs et de candidats de trouver leur bonheur.
+The coronavirus crisis having hit this sector hard, the company wants to gradually set up a tool allowing a greater number of recruiters and candidates to find what they are looking for.
 
-TRT Conseil désire avoir un produit minimum viable afin de tester si la demande est réellement présente. L’agence souhaite proposer pour l’instant une simple interface avec une authentification.
+TRT Conseil wants to have a minimum viable product in order to test whether the demand is really there. The agency wants to offer for the moment a simple interface with authentication.
 
-4 types d’utilisateur devront pouvoir se connecter :
+4 types of users will need to be able to connect:
 
- Les recruteurs : Une entreprise qui recherche un employé.
- Les candidats : Un serveur, responsable de la restauration, chef cuisinier etc.
- Les consultants : Missionnés par TRT Conseil pour gérer les liaisons sur le back-office entre recruteurs et candidats.
- L’administrateur : La personne en charge de la maintenance de l’application.
+Recruiters: A company looking for an employee. 
+Candidates: A server, catering manager, chef, etc. 
+Consultants: Commissioned by TRT Conseil to manage the links on the back office between recruiters and candidates. 
+Administrator: The person in charge of maintaining the application.
 
-## Fonctionnalités
+## Features
 
-### US1. Créer un compte
+### US1. Create an account
 
-Disponible pour les recruteurs et les candidats.
-Renseignement d'un email valide et d'un mot de passe sécurisé.
-Approbation de la demande par un consultant avant activation du compte.
+Available for recruiters and candidates. Enter a valid email and a secure password. 
+Approval of the request by a consultant before activating the account.
 
-### US2. Se connecter
+### US2. Log in
 
-Accessible aux recruteurs, candidats, consultants et administrateur.
-Authentification par email et mot de passe.
+Accessible to recruiters, candidates, consultants and administrator. Authentication by email and password.
 
-### US3. Créer un consultant
+### US3. Create a consultant
 
-Fonctionnalité réservée à l'administrateur.
-Permet d'ajouter de nouveaux consultants à la plateforme.
+Functionality reserved for the administrator. Allows you to add new consultants to the platform.
 
-### US4. Compléter son profil
+### US4. Complete your profile
 
-Accessible aux candidats et aux recruteurs.
-Les candidats peuvent renseigner leur nom, prénom et télécharger leur CV (format PDF obligatoire).
-Les recruteurs peuvent indiquer le nom de l'entreprise et une adresse.
+Accessible to candidates and recruiters. Candidates can enter their first and last name and upload their CV (mandatory PDF format). Recruiters can indicate the name of the company and an address.
 
-### US5. Publier une annonce
+### US5. Publish an ad
 
-Fonctionnalité pour les recruteurs.
-Formulaire pour l'intitulé du poste, le lieu de travail et une description détaillée (horaires, salaire, etc.).
-Validation de l'annonce par un consultant avant publication.
-Liste des candidats validés par TRT Conseil et ayant postulé à l'annonce accessible au recruteur.
+Functionality for recruiters. Form for the job title, the place of work and a detailed description (hours, salary, etc.). Validation of the ad by a consultant before publication. List of candidates validated by TRT Conseil and having applied for the advert accessible to the recruiter.
 
-### US6. Postuler à une annonce
+### US6. Apply for an advert
 
-Accessible aux candidats, bouton pour postuler à une offre depuis la liste des annonces disponibles.
-Approbation de la candidature par un consultant.
-Envoi d'un email au recruteur avec le nom, prénom et CV du candidat si la candidature est approuvée.
+Accessible to candidates, button to apply for an offer from the list of available ads. Approval of the application by a consultant. Sending an email to the recruiter with the name, first name and CV of the candidate if the application is approved.
 
-## Configuration de l'environnement de travail
+## Working environment configuration
 
 - IDE: [Visual Studio Code 1.87.2](https://code.visualstudio.com/)
 
 - IDE: [PhpStorm 2023.3.6](https://www.jetbrains.com/phpstorm/download)
 
-- système de contrôle de version: [Git version 2.44.0](https://git-scm.com/)
+- version control system: [Git version 2.44.0](https://git-scm.com/)
 
-- serveur Web local: [XAMPP 8.2.4-0](https://www.apachefriends.org/download.html)
+- local web server: [XAMPP 8.2.4-0](https://www.apachefriends.org/download.html)
 
-- langage de scripts généraliste: [PHP 8.3.4](https://www.php.net/downloads)
+- general scripting language: [PHP 8.3.4](https://www.php.net/downloads)
 
-- gestion des dépendances en PHP: [Composer version 2.7.2](https://getcomposer.org/download/)
+- PHP dependency management: [Composer version 2.7.2](https://getcomposer.org/download/)
 
-- outil de développement pour créer, exécuter et gérer vos applications Symfony: [Symfony CLI version 5.8.14](https://symfony.com/download)
+- development tool to create, run and manage your Symfony applications: [Symfony CLI version 5.8.14](https://symfony.com/download)
 
-- moteur d'exécution JavaScript: [Node.js 20.12.0](https://nodejs.org/en/download)
+- JavaScript runtime: [Node.js 20.12.0](https://nodejs.org/en/download)
 
-- gestionnaire de paquets "npm" JavaScript Node.js: [npm 10.5.0](https://docs.npmjs.com/try-the-latest-stable-version-of-npm)
+- Node.js JavaScript "npm" package manager: [npm 10.5.0](https://docs.npmjs.com/try-the-latest-stable-version-of-npm)
 
-- npx exécution des paquets: [npx 10.5.0](https://www.npmjs.com/package/npx)
+- npx package execution: [npx 10.5.0](https://www.npmjs.com/package/npx)
 
-- gestionnaire de packages: [yarn 1.22.19](https://classic.yarnpkg.com/lang/en/docs/install/)
+- package manager: [yarn 1.22.19](https://classic.yarnpkg.com/lang/en/docs/install/)
 
-- navigateur Web: [Google Chrome 123.0.6312.87](https://www.google.com/intl/fr/chrome/)
+- Web browser: [Google Chrome 123.0.6312.87](https://www.google.com/intl/fr/chrome/)
 
 ## Installation
 
-Vous pouvez cloner ce dépôt pour créer une copie locale sur votre ordinateur:
+You can clone this repository to create a local copy on your computer:
 
 ```bash
 git clone git@github.com:danian3wa/trtconseil.git
 ```
-Pour utiliser une base de données MySQL, vous devez activer le pilote dans php.ini sur votre appareil s'il n'est pas déjà activé.
-Décommentez "extension=php_pdo_mysql.dll" dans votre fichier php.ini.
+To use a MySQL database, you need to enable the driver in php.ini on your device if it is not already enabled. Uncomment "extension=php_pdo_mysql.dll" in your php.ini file.
 
-Après la configuration de l'environnement du travail vous pouvez passer à l'installation des composants nécessaire. Vous devez ouvrir le projet cloné dans votre IDE. Dans le terminal de votre IDE vous devez vous rendre dans le dossier du projet nouvellement crée après le clonage si ce n'est pas deja le cas:
+After setting up the working environment you can proceed to installing the necessary components. You need to open the cloned project in your IDE. In the terminal of your IDE you must go to the folder of the newly created project after cloning if it is not already the case:
 
 ```bash
 cd trtconseil
 ```
 
-Avec cette commande, dans le terminal vous installez les dépendances du projet présentes dans [composer.json](composer.json):
+With this command, in the terminal you install the dependencies of the project present in: [composer.json](composer.json):
 
 ```bash
 composer install
 ```
 
-Si composer n'est pas installé sur votre environnement de travail vous trouvere a cette adresse des information vous permetant l'instalation:
+If composer is not installed on your working environment you will find at this address information allowing you to install:
 
 - [https://getcomposer.org/download/](https://getcomposer.org/download/)
 
-Avec cette commande, dans le terminal vous installez les dépendances du projet présentes dans [yarn.lock](yarn.lock):
+With this command, in the terminal you install the dependencies of the project present in [yarn.lock](yarn.lock):
 
 ```bash
 yarn
 ```
 
-Si yarn n'est pas installé sur votre environnement de travail vous trouvere a cette adresse des information vous permetant l'instalation:
+If yarn is not installed on your working environment you will find at this address information allowing you to install:
 
 - [https://classic.yarnpkg.com/lang/en/docs/install/](https://classic.yarnpkg.com/lang/en/docs/install/)
 
-Si node.js n'est pas installé sur votre environnement de travail vous trouvere a cette adresse des information vous permetant l'instalation:
+If node.js is not installed on your working environment you will find at this address information allowing you to install:
 
 - [https://nodejs.org/en/download](https://nodejs.org/en/download)
 
-Dans le fichie [.env](.env) on doit définir les informations concernant l'access a la base des données.
-DBHOST="127.0.0.1" -> pour l'addresse IP locale, DBPORT="3306" -> pour le port utilisé, DBNAME="TRTConseil" -> le nom de la base de données, DATABASE_PASSWORD="" -> sans mot de passe en locale, MYSQL_DB_USER="root" -> pour le nom d'utilisateur.
+In the file .env we must define the information concerning the access to the database.
+DBHOST="127.0.0.1" -> for the local IP address, DBPORT="3306" -> for the port used, DBNAME="TRTConseil" -> the name of the database, DATABASE_PASSWORD="" -> without password locally, MYSQL_DB_USER="root" -> for the database username.
 
 ```bash
 DBHOST="127.0.0.1"
@@ -149,173 +138,192 @@ DBNAME="TRTConseil"
 MYSQL_DB_USER="root"
 ```
 
-Il faut démarrer les serveurs Apache Web Server et MySQL Database dans l'application XAMPP dans la section Manage Servers
+You need to start the Apache Web Server and MySQL Database servers in the XAMPP application in the Manage Servers section
 
-Avec cette commande, dans le terminal de votre IDE, vous créez la base de données TRTConseil
+With this command, in the terminal of your IDE, you create the database TRTConseil
 
 ```bash
 symfony console doctrine:database:create
 ```
 
-Avec cette commande, dans le terminal vous créez la migration des entites :
+With this command, in the terminal you create the migration of the entities:
 
 ```bash
 symfony console make:migration
 ```
 
-Avec cette commande, dans le terminal, vous effectuez la migration vers la base de données :
+With this command, in the terminal, you perform the migration to the database:
 
 ```bash
 symfony console doctrine:migration:migrate
 ```
 
-Avec cette commande, dans le terminal de votre IDE, vous installez des certificats pour pouvoir naviguer en https :
+You need to start the Apache Web Server and MySQL Database servers in the XAMPP application in the Manage Servers section
+
+With this command, in the terminal of your IDE, you create the database TRTConseil
+
+```bash
+symfony console doctrine:database:create
+```
+
+With this command, in the terminal you create the migration of the entities:
+
+```bash
+symfony console make:migration
+```
+
+With this command, in the terminal, you perform the migration to the database:
+
+```bash
+symfony console doctrine:migration:migrate
+```
+
+With this command, in the terminal of your IDE, you install certificates to be able to browse in https:
 
 ```bash
 symfony server:ca:install
 ```
 
-Vous pouvez ouvrir phpMyAdmin dans votre navigateur pour visualiser la nouvelle base de données.
-[http://127.0.0.1/phpmyadmin/index.php?route=/](http://127.0.0.1/phpmyadmin/index.php?route=/)
+You can open phpMyAdmin in your browser to view the new database. [http://127.0.0.1/phpmyadmin/index.php?route=/](http://127.0.0.1/phpmyadmin/index.php?route=/)
 
 ## Fixtures
 
-Les fixtures dans le cadre de ce projet Symfony sont des données de test prédéfinies qui sont utilisées pour remplir la base de données avec des informations fictives, simulant ainsi le fonctionnement de l'application dans un environnement de développement. Elles sont particulièrement utiles pour évaluer le bon fonctionnement de l'application, tester différentes fonctionnalités, et assurer la cohérence des données. Les fichiers des fixtures se trouvent dans le dossier [/src/DataFixtures/](/src/DataFixtures/).
+Fixtures in this Symfony project are predefined test data that are used to populate the database with dummy information, simulating how the application will work in a development environment. They are particularly useful for evaluating the correct operation of the application, testing different features, and ensuring data consistency. The fixture files are located in the [/src/DataFixtures/](/src/DataFixtures/) folder.
 
-Le fichier [PosteFixtures.php](/src/DataFixtures/PosteFixtures.php) crée des instances de la classe Poste avec des libelles de postes prédéfinis, enregistrant chaque instance dans la base de données. Il enregistre également une référence pour chaque poste, ce qui permet de les récupérer dans d'autres fixtures.
+The [PosteFixtures.php](/src/DataFixtures/PosteFixtures.php) file creates instances of the Poste class with predefined post labels, registering each instance in the database. It also stores a reference for each position, which allows them to be retrieved in other fixtures.
 
-Le fichier [UserFixtures.php](/src/DataFixtures/UserFixtures.php) est responsable de la création de 4 comptes utilisateurs avec différents rôles (ROLE_ADMIN, ROLE_CONSULTANT, ROLE_RECRUTEUR_TOVALID, ROLE_CANDIDAT_TOVALID). Crée 28 entrées des annonces de recrutement pour chaque poste référencé avec des données aléatoires telles que le titre, le type de contrat, la ville, le salaire, à l'aide de la bibliothèque Faker. Les annonces créées sont associées à des recruteurs et des consultants.
+The file [UserFixtures.php](/src/DataFixtures/UserFixtures.php) is responsible for creating 4 user accounts with different roles (ROLE_ADMIN, ROLE_CONSULTANT, ROLE_RECRUITEUR_TOVALID, ROLE_CANDIDAT_TOVALID). Creates 28 recruitment ad entries for each referenced position with random data such as title, contract type, city, salary, using the Faker library. The created ads are associated with recruiters and consultants.
 
-Ces fixtures sont utilisées pour pré-remplir la base de données avec des données de test pour faciliter le développement. Elles assurent également la cohérence des données lors de l'initialisation de la base de données avec de nouvelles installations ou lors de la réinitialisation des données de test.
+These fixtures are used to pre-populate the database with test data to facilitate development. They also ensure data consistency when initializing the database with new installations or when resetting the test data.
 
-Chargez les fixtures dans la base de données avec la commande:
+Load the fixtures into the database with the command:
 
 ```bash
 php bin/console doctrine:fixtures:load
 ```
 
-Vous pouvez lancer l'application.
+You can launch the application.
 
-Avec cette commande, dans le terminal de votre IDE, vous démarrez le serveur de développement :
+With this command, in the terminal of your IDE, you start the development server:
 
 ```bash
 npx encore dev-server --hot
 ```
 
-Avec cette commande, dans un nouveau terminal de votre IDE, vous lancez le serveur interne de Symfony:
+With this command, in a new terminal of your IDE, you start the internal Symfony server:
 
 ```bash
 symfony serve
 ```
 
-Le serveur Symfony vous informe qu'il est en écoute à l'adresse https://127.0.0.1:8000
-Vous pouvez ouvrir ce lien dans votre navigateur.
+The Symfony server informs you that it is listening at the address https://127.0.0.1:8000
+You can open this link in your web browser.
 
-Au moment de la connexion selon le rôle, l'utilisateur est redirigé vers l'espace d'administration le concernant.
+When logging in, depending on the role, the user is redirected to the administration area concerning him.
 
-Lors du chargement des fixtures parmi d'autres données, des utilisateurs ont été insérés dans la base de données:
+When loading fixtures among other data, users were inserted into the database:
 
-1. TRT Conseil, ROLE_ADMIN, email: admin@mail.com, mot de passe: 12345678
-2. JONES Adele, ROLE_CONSULTANT, email: consultant@mail.com, mot de passe: 12345678
-3. MICHELLE Eda, ROLE_RECRUTEUR_TOVALID, email: recruteur@mail.com, mot de passe: 12345678
-4. MARY Lea, ROLE_CANDIDAT_TOVALID, email: candidat@mail.com, mot de passe: 12345678
+1. TRT Conseil, ROLE_ADMIN, email: admin@mail.com, password: 12345678
+2. JONES Adele, ROLE_CONSULTANT, email: consultant@mail.com, password: 12345678
+3. MICHELLE Eda, ROLE_RECRUTEUR_TOVALID, email: recrutement@mail.com, password: 12345678
+4. MARY Lea, ROLE_CANDIDAT_TOVALID, email: candidat@mail.com, password: 12345678
 
-Les addresses email sont des adresse fictives.
+The email addresses are fictitious addresses.
 
-Vous avez désormais la possibilité de vous connecter à l'espace utilisateur avec une adresse email et le mot de passe.
+You now have the possibility to log in to the user area with an email address and password.
 
-Vous pouvez utiliser l'application Web comme décrit dans les fonctionnalités avec différents types d'utilisateurs.
+You can use the web application as described in the features with different types of users.
 
-Par exemple, pour activer le compte d'un recruteur inscrit, vous vous connectez avec le compte d'un consultant en utilisant l'adresse email consultant@mail.com et le mot de passe: 12345678 et dans l'onglet "Recruteurs" vous validez le compte du recruteur inscrit. Vous pouvez faire la même chose pour le compte candidat dans l'onglet "Candidats".  
+For example, to activate the account of a registered recruiter, you connect with the account of a consultant using the email address consultant@mail.com and the password: 12345678 and in the "Recruiters" tab you validate the account of the registered recruiter. You can do the same thing for the candidate account in the "Candidates" tab.
 
-Pour pouvoir tester la fonctionnalité d'envoi d'email lors de la validation d'une candidature vous devez saisir un DSN valide dans le fichie [.env](.env) au niveau du MAILER_DSN=smtp://EMAIL:PASSWORD@SMTP_SERVER:PORT
+To be able to test the email sending functionality when validating an application you must enter a valid DSN in the [.env](.env) file at the level of MAILER_DSN=smtp://EMAIL:PASSWORD@SMTP_SERVER:PORT
 
-Dans le fichier [CandidatureController.php](/src/Controller/CandidatureController.php) ligne numéro 103 vous devez remplacer test@mail.com par votre adresse e-mail relative à la DSN.
+In the file [CandidatureController.php](/src/Controller/CandidatureController.php) line number 103 you must replace test@mail.com with your email address relating to the DSN.
 
-Vous devez également modifier l'adresse email du recruteur dans la base de données (à l'aide de phpMyAdmin) avec une adresse email valide pour pouvoir recevoir l'email envoyé. Vous utiliserez bien évidemment cette nouvelle adresse pour vous connecter au compte recruteur.
+You also need to change the recruiter's email address in the database (using phpMyAdmin) with a valid email address to be able to receive the email sent. You will obviously use this new address to connect to the recruiter account.
 
-Avec cette commande, dans le terminal de votre IDE, vous arrêtez le serveur intern de Symfony :
+With this command, in your IDE terminal, you stop the Symfony intern server:
 
 ```bash
 symfony server:stop
 ```
 
-Pour arrêter le serveur de développement, utilisez la commande Control+C pour MacOS ou CTRL+C pour Windows.
+To stop the development server, use the command Control+C for MacOS or CTRL+C for Windows.
 
 **Note:**
 
-> Il s'agit d'une application web en mode développement et non pas d'une application web en mode production.
+> This is a web application in development mode and not a web application in production mode.
 
-## Insertion SQL
+## SQL Insertion
 
-### Exemple:
+### Example:
 
-Le fichier [schema.sql](/resources/schema.sql) a été écrit à la main et permet de créer la base de données TRTConseil_SQL et d'insérer des données dans cette base de données via PhpMyAdmin.
+The file [schema.sql](/resources/schema.sql) was written by hand and allows to create the TRTConseil_SQL database and to insert data into this database via PhpMyAdmin.
 
-Pour cela, il faut démarrer les serveurs Apache Web Server et MySQL Database dans l'application XAMPP dans la section Manage Servers si ce n'est pas déjà fait et puis dans un navigateur internet ouvrir [http://127.0.0.1/phpmyadmin/index.php](http://127.0.0.1/phpmyadmin/index.php) et sélectionez l'onglet Importer,  cliquez sur le bouton Choisir un fichier et sélectionez le fichier schema.sql depuis le repertoire de votre projet /TRTConseil/resources/ et puis cliquez sur le bouton Importer. 
+To do this, you need to start the Apache Web Server and MySQL Database servers in the XAMPP application in the Manage Servers section if it is not already done and then in a web browser open [http://127.0.0.1/phpmyadmin/index.php](http://127.0.0.1/phpmyadmin/index.php) and select the Import tab, click on the Choose File button and select the schema.sql file from your project directory /TRTConseil/resources/ and then click on the Import button.
 
-Vous devez modifier le nom de la base de données dans le fichier [.env](/.env) à la ligne 33, DBNAME="TRTConseil_SQL".
+You need to change the database name in the [.env](/.env) file on line 33, DBNAME="TRTConseil_SQL".
 
-Une fois l'importation terminée, vous pouvez lancer l'application. Parmi d'autres données, 4 utilisateurs ont été insérés dans la base de données :
-1. TRT Conseil, ROLE_ADMIN, email: admin@mail.com, mot de passe: 12345678
-2. JONES Adele, ROLE_CONSULTANT, email: consultant@mail.com, mot de passe: 12345678
-3. MICHELLE Eda, ROLE_RECRUTEUR_TOVALID, email: recruteur@mail.com, mot de passe: 12345678
-4. MARY Lea, ROLE_CANDIDAT_TOVALID, email: candidat@mail.com, mot de passe: 12345678
+Once the import is complete, you can launch the application. Among other data, 4 users have been inserted into the database:
+1. TRT Conseil, ROLE_ADMIN, email: admin@mail.com, password: 12345678
+2. JONES Adele, ROLE_CONSULTANT, email: consultant@mail.com, password: 12345678
+3. MICHELLE Eda, ROLE_RECRUTEUR_TOVALID, email: recrutement@mail.com, password: 12345678
+4. MARY Lea, ROLE_CANDIDAT_TOVALID, email: candidat@mail.com, password: 12345678
 
-Vous pouvez tester l'application.
+You can test the application.
 
 ## API
 
-### GET /api/annonces - Liste de tous les annonces :
+### GET /api/annonces - List of all ads:
 
-Cette route renvoie la liste complète de tous les annonces disponibles.
-- **Méthode** : GET
-- **Paramètres** : Aucun
-- **Réponse** : Un tableau JSON contenant les informations des annonces.
-- **Exemple d'utilisation** : GET /api/annonces
+This route returns the complete list of all available ads.
+- **Method** : GET
+- **Parameters** : None
+- **Response** : A JSON array containing the listing information.
+- **Example usage** : GET /api/ads
 
-### GET /api/annoncesby - Pagination des annonces :
+### GET /api/adsby - Ads pagination :
 
-Cette route permet de paginer les annonces disponibles.
-- **Méthode** : GET
-- **Paramètres** : page (optionnel) : Numéro de la page à récupérer (par défaut : 1)
-- **Réponse** : Un tableau JSON contenant les détails des annonces paginées, ainsi que des informations sur la pagination comme le numéro de page actuelle, le nombre d'annonces par page et le nombre total d'annonces.
-- **Exemple d'utilisation** : GET /api/annoncesby?page=1
-  
-### GET /api/annonce/{id} - Détails d'une annonce spécifique :
-Cette route renvoie les détails d'une annonce spécifique identifiée par son ID.
+This route allows you to paginate the available listings.
+- **Method** : GET
+- **Parameters** : page (optional) : Number of the page to retrieve (default: 1)
+- **Response** : A JSON array containing the details of the paginated listings, as well as information about the pagination such as the current page number, the number of listings per page, and the total number of listings.
+- **Example usage**: GET /api/annoncesby?page=1
 
-- **Méthode** : GET
-- **Paramètres** : id : Identifiant de l'annonce à récupérer
-- **Réponse** : Les détails de l'annonce spécifiée sous forme JSON.
-- **Exemple d'utilisation** : GET /api/annonce/
-  
-### GET /api/annoncesby/{poste} - Annonces par poste :
+### GET /api/annonce/{id} - Details of a specific ad:
+This route returns the details of a specific ad identified by its ID.
 
-Cette route permet de récupérer les annonces filtrées par poste.
-- **Méthode** : GET
-- **Paramètres** : poste : Nom du poste pour lequel les annonces sont recherchées
-- **Réponse** : Un tableau JSON contenant les détails des annonces associées au poste spécifié, paginées si nécessaire, avec des informations sur la pagination.
-- **Exemple d'utilisation** : GET /api/annoncesby/cuisinier
+- **Method**: GET
+- **Parameters**: id: Identifier of the ad to retrieve
+- **Response**: The details of the specified ad in JSON form.
+- **Example usage**: GET /api/annonce/
 
-### GET /api/annoncesbyposte/{id} - Annonces par ID de poste :
-Cette route permet d'obtenir les annonces associées à un poste spécifique identifié par son ID.
+### GET /api/annoncesby/{poste} - Ads by post:
 
-- **Méthode** : GET
-- **Paramètres** : id : Identifiant du poste pour lequel les annonces sont recherchées
-- **Réponse** : Un tableau JSON contenant les détails des annonces associées au poste spécifié.
-- **Exemple d'utilisation** : GET /api/annoncesbyposte/456
+This route is used to retrieve ads filtered by post.
+- **Method**: GET
+- **Parameters**: post: Name of the post for which ads are searched
+- **Response**: A JSON array containing the details of the ads associated with the specified post, paginated if necessary, with information on pagination.
+- **Example usage** : GET /api/annoncesby/cuisinier
 
-## Diagrammes
+### GET /api/annoncesbyposte/{id} - Advertisements by job ID :
+This route allows you to get the advertisements associated with a specific job identified by its ID.
 
-[Diagramme de classes](/resources/Class_diagram.png)
+- **Method** : GET
+- **Parameters** : id : Identifier of the job for which the advertisements are sought
+- **Response** : A JSON array containing the details of the advertisements associated with the specified job.
+- **Example of use** : GET /api/annoncesbyposte/456
 
-[Diagramme de cas d'utilisations](/resources/Diagramme%20de%20cas%20d'utilisation.png)
+## Diagrams
 
-[Diagramme de séqence 1](/resources/Diagramme_de_sequence.jpg)
+[Class diagram](/resources/Class_diagram.png)
 
-[Diagramme de séqence 2](/resources/Diagramme%20de%20sequence_2.jpg)
+[Use case diagram](/resources/Diagramme%20de%20cas%20d'utilisation.png)
 
-## Gestion du projet
+[Sequence diagram 1](/resources/Diagramme_de_sequence.jpg)
 
-[Lien Trello](https://trello.com/invite/b/94RP6TYI/ATTI6d07260e89068ca9fe89f0ef6f89de9eC65DF6D1/trt-conseil)
+[Sequence diagram 2](/resources/Diagramme%20de%20sequence_2.jpg)
+
+## Project management
+
+[Trello link](https://trello.com/invite/b/94RP6TYI/ATTI6d07260e89068ca9fe89f0ef6f89de9eC65DF6D1/trt-conseil)
