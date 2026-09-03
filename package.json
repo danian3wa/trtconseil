@@ -21,6 +21,6 @@
         "ws": "^8.17.1"
     },
     "resolutions": {
-    "fast-uri": "^3.1.5"
+    "fast-uri": "^3.1.7"
     }
 }
